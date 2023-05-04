@@ -37,26 +37,7 @@ class HomeVisitors extends HTMLElement {
     css.innerHTML = HomeVisitorsStyle;
     this.shadowRoot?.appendChild(css);
 
-    appState.servers.forEach((data) => {
-        const TutorialsCard = this.ownerDocument.createElement("my-tutorials") as Tutorials;
-        TutorialsCard.setAttribute(TutorialsAtt.image, data.image);
-        TutorialsCard.setAttribute(TutorialsAtt.tittle, data.title);
-        TutorialsCard.setAttribute(TutorialsAtt.creator, data.creator);
-        this.TutorialsList.push(TutorialsCard);
-    });
-
-    const section1 = this.ownerDocument.createElement("section")
-    section1.className = 'Section1'
-
-    const TutorialsCards = this.ownerDocument.createElement("div")
-    TutorialsCards.className = 'TutorialsSection'
-    this.TutorialsList.forEach((TutorialsCard) => {
-        TutorialsCards.appendChild(TutorialsCard)
-    });
-    section1.appendChild(TutorialsCards)
-    this.shadowRoot?.appendChild(section1);
-
-    appState.friends.forEach((data) => {
+     appState.friends.forEach((data) => {
         const CategoriesCard = this.ownerDocument.createElement("my-categories") as Categories;
         CategoriesCard.setAttribute(CategoriesAtt.image, data.image);
         CategoriesCard.setAttribute(CategoriesAtt.name, data.title);
@@ -73,7 +54,26 @@ class HomeVisitors extends HTMLElement {
     });
     section2.appendChild(CategoriesCards)
     this.shadowRoot?.appendChild(section2);
+    
+    
+    appState.servers.forEach((data) => {
+      const TutorialsCard = this.ownerDocument.createElement("my-tutorials") as Tutorials;
+      TutorialsCard.setAttribute(TutorialsAtt.image, data.image);
+      TutorialsCard.setAttribute(TutorialsAtt.tittle, data.title);
+      TutorialsCard.setAttribute(TutorialsAtt.creator, data.creator);
+      this.TutorialsList.push(TutorialsCard);
+  });
 
+  const section1 = this.ownerDocument.createElement("section")
+  section1.className = 'Section1'
+
+  const TutorialsCards = this.ownerDocument.createElement("div")
+  TutorialsCards.className = 'TutorialsSection'
+  this.TutorialsList.forEach((TutorialsCard) => {
+      TutorialsCards.appendChild(TutorialsCard)
+  });
+  section1.appendChild(TutorialsCards)
+  this.shadowRoot?.appendChild(section1);
   }
 }
 

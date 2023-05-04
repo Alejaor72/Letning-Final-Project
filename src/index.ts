@@ -1,4 +1,4 @@
-import "./screens/homevisitors"
+import "./screens/homevisitors/homevisitors"
 import "./components/export"
 
 class AppContainer extends HTMLElement {

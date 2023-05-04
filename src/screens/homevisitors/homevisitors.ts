@@ -1,10 +1,10 @@
 import HomeVisitorsStyle from "./HomeVisitorsStyle.css";
 
-import Categories, { CategoriesAtt } from "../components/Categories/Categories";
-import Tutorials, { TutorialsAtt } from "../components/Tutorials/Tutorials";
-import { getCategories } from "../store/actions";
-import { getTutorials} from "../store/actions";
-import { addObserver, appState, dispatch } from "../store/index";
+import Categories, { CategoriesAtt } from "../../components/Categories/Categories";
+import Tutorials, { TutorialsAtt } from "../../components/Tutorials/Tutorials";
+import { getCategories } from "../../store/actions";
+import { getTutorials} from "../../store/actions";
+import { addObserver, appState, dispatch } from "../../store/index";
 
 class HomeVisitors extends HTMLElement {
   TutorialsList: Tutorials[] = [];

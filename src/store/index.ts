@@ -7,8 +7,9 @@ const emptyState: AppState = {
     userName: "",
     email: "",
   },
-  friends: [],
-  servers: [],
+  categories: [],
+  tutorials: [],
+  profileSettings: [],
 };
 
 export let appState = Storage.get<AppState>({

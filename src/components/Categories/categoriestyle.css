@@ -1,0 +1,105 @@
+@media (min-width: 1000px){ 
+    .categoriesDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        margin-left: 50px;
+        width: 60px;
+        height: 60px;
+        padding: 10px;
+        background: rgba(226, 226, 226, 0.68);
+        font-family: 'Kodchasan', sans-serif;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .imgC{
+        width: 45px;
+    
+    }
+    
+    .textC{
+        font-size: 10px;
+        margin: 5px;
+    }
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) { 
+    .categoriesDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        margin-left: 12px;
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+        background: rgba(226, 226, 226, 0.68);
+        font-family: 'Kodchasan', sans-serif;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .imgC{
+        width: 20px;
+    
+    }
+    
+    .textC{
+        font-size: 5px;
+        margin: 3px;
+    }
+}
+
+@media only screen and (min-device-width : 568px) and (max-device-width : 1000px) {
+    .categoriesDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        margin-left: 50px;
+        width: 60px;
+        height: 60px;
+        padding: 10px;
+        background: rgba(226, 226, 226, 0.68);
+        font-family: 'Kodchasan', sans-serif;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .imgC{
+        width: 45px;
+    
+    }
+    
+    .textC{
+        font-size: 10px;
+        margin: 5px;
+    }
+}
+@media (min-width: 1500px){
+    .categoriesDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 25px;
+        margin-left: 60px;
+        width: 90px;
+        height: 90px;
+        padding: 20px;
+        background: rgba(226, 226, 226, 0.68);
+        font-family: 'Kodchasan', sans-serif;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .imgC{
+        width: 75px;
+    
+    }
+    
+    .textC{
+        font-size: 15px;
+        margin: 10px;
+    }
+}

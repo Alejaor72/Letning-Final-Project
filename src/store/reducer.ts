@@ -1,4 +1,4 @@
-import { Actions, AppState, AuthActions, CategoriesActions, TutorialsActions } from "../types/store";
+import { Actions, AppState, AuthActions, CategoriesActions, TutorialsActions , PsettingsActions} from "../types/store";
 
 export const reducer = (currentAction: Actions, currentState: AppState): AppState => {
     const { action, payload } = currentAction; 
@@ -22,33 +22,48 @@ export const reducer = (currentAction: Actions, currentState: AppState): AppStat
         case CategoriesActions.ADD:
             return {
                 ...currentState,
-                friends: [
+                categories: [
                     payload,
-                    ...currentState.friends,
+                    ...currentState.categories,
                 ]
             }
 
         case TutorialsActions.ADD2:
             return {
                 ...currentState,
-                servers: [
+                tutorials: [
                     payload,
-                    ...currentState.servers,
+                    ...currentState.tutorials,
                 ]
             }
         
-        case CategoriesActions.GET:
+        case PsettingsActions.ADD3:
             return {
                 ...currentState,
-                friends: payload
+                profileSettings: [
+                    payload,
+                    ...currentState.profileSettings,
+                ]
+            }
+        
+            case CategoriesActions.GET:
+            return {
+                ...currentState,
+                categories: payload
             }
 
         case TutorialsActions.GET2:
             return {
                 ...currentState,
-                servers: payload
+                tutorials: payload
             }
-    
+        
+        case PsettingsActions.GET3:
+            return {
+                    ...currentState,
+                    profileSettings: payload
+            }    
+
         default:
             return currentState;
     }

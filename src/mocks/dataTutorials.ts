@@ -5,68 +5,74 @@ export const dataTutorials: InterTutorials[] = [
     {
        title: "Know the basic of singing",
        creator: "Tiffany Young",
-       image: "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.2000000476837158/c_scale,w_800/ncom/en_US/articles/2023/it-takes-a-different-perspective-to-conquer-these-first-person-games/2250x1266_FPG_EN",
-       like: false
+       image: "/img/musica.jpg",
+       like: true
     },
     {
         title: "Control good your money",
         creator: "Sebastian Stan",
-        image: "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.2000000476837158/c_scale,w_800/ncom/en_US/articles/2023/mobilenews-give-the-super-mario-run-game-a-go-with-daily-unlocks/SuperMarioRun_20230310",
+        image: "/img/bitcoin.jpg",
         like: false
     },
     {
         title: "Lest sew together",
         creator: "Kyle Broflovski",
-        image: "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.2000000476837158/c_scale,w_800/ncom/en_US/articles/2023/mobilenews-give-the-super-mario-run-game-a-go-with-daily-unlocks/SuperMarioRun_20230310",
-        like: false
+        image: "/img/coser.jpg",
+        like: true
     },
     {
         title: "know about javascript",
         creator: "Isabella Garcia",
-        image: "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.2000000476837158/c_scale,w_800/ncom/en_US/articles/2023/mobilenews-give-the-super-mario-run-game-a-go-with-daily-unlocks/SuperMarioRun_20230310",
+        image: "/img/hacker.jpg",
         like: false
     },
     {
         title: "Cook a breakfast",
         creator: "Valentina Osma",
-        image: "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.2000000476837158/c_scale,w_800/ncom/en_US/articles/2023/mobilenews-give-the-super-mario-run-game-a-go-with-daily-unlocks/SuperMarioRun_20230310",
-        like: false
+        image: "/img/comida.jpg",
+        like: true
     },
     {
         title: "Best ejercices",
         creator: "Tonio Trussardi",
-        image: "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.2000000476837158/c_scale,w_800/ncom/en_US/articles/2023/mobilenews-give-the-super-mario-run-game-a-go-with-daily-unlocks/SuperMarioRun_20230310",
+        image: "/img/pareja-estirando.jpg",
         like: false
     },
     {
         title: "Lose weight with us",
         creator: "Goku Fernandez",
-        image: "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.2000000476837158/c_scale,w_800/ncom/en_US/articles/2023/mobilenews-give-the-super-mario-run-game-a-go-with-daily-unlocks/SuperMarioRun_20230310",
-        like: false
+        image: "/img/entrenandojuntos.jpg",
+        like: true
     },
     {
         title: "handle your time with me",
         creator: "Akiles Mamo",
-        image: "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.2000000476837158/c_scale,w_800/ncom/en_US/articles/2023/mobilenews-give-the-super-mario-run-game-a-go-with-daily-unlocks/SuperMarioRun_20230310",
+        image: "/img/arquitecto.jpg",
         like: false
     },
     {
         title: "know the basics of painting",
         creator: "Margarita Copper",
-        image: "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.2000000476837158/c_scale,w_800/ncom/en_US/articles/2023/mobilenews-give-the-super-mario-run-game-a-go-with-daily-unlocks/SuperMarioRun_20230310",
-        like: false
+        image: "/img/artistico.jpg",
+        like: true
     },
     {
         title: "Grunge makeup with me",
         creator: "Rohan Kishibe",
-        image: "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.2000000476837158/c_scale,w_800/ncom/en_US/articles/2023/mobilenews-give-the-super-mario-run-game-a-go-with-daily-unlocks/SuperMarioRun_20230310",
+        image: "/img/maquillaje.jpg",
         like: false
     },
     {
         title: "Study for your final exam",
         creator: "Caroline Yazawa",
-        image: "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.2000000476837158/c_scale,w_800/ncom/en_US/articles/2023/mobilenews-give-the-super-mario-run-game-a-go-with-daily-unlocks/SuperMarioRun_20230310",
+        image: "/img/joven.jpg",
         like: false
+    },
+    {
+        title: "Avocado benefits",
+        creator: "Anne Solarte",
+        image: "/img/aguacate.jpg",
+        like: true
     }
 ];
 

@@ -1,6 +1,7 @@
 
 import { InterCategories} from "./Categories"
 import { InterTutorials} from "./Tutorials"
+import { InterPSettings } from "./ProfileSettings";
 
 export type Observer = ({ render: () => void } & HTMLElement);
 
@@ -9,8 +10,9 @@ export type AppState = {
         userName: string,
         email: string,
     },
-    friends: InterCategories[]
-    servers: InterTutorials[]
+    categories: InterCategories[]
+    tutorials: InterTutorials[]
+    profileSettings: InterPSettings[]
 }
 
 export enum AuthActions {
@@ -26,6 +28,11 @@ export enum CategoriesActions {
 export enum TutorialsActions {
     "ADD2" = "ADD2",
     "GET2" = "GET2",
+}
+
+export enum PsettingsActions {
+    "ADD3" = "ADD3",
+    "GET3" = "GET3",
 }
 
 export interface LogInAction {
@@ -48,6 +55,10 @@ export interface AddTutorialsAction {
     payload: InterTutorials
 }
 
+export interface AddPsettingsAction {
+    action: PsettingsActions.ADD3,
+    payload: InterPSettings
+}
 
 export interface GetCategoriesAction {
     action: CategoriesActions.GET,
@@ -58,4 +69,9 @@ export interface GetTutorialsAction {
     action: TutorialsActions.GET2,
     payload: InterTutorials[]
 }
-export type Actions = LogInAction | LogOutAction | AddCategoriesAction | GetCategoriesAction | AddTutorialsAction | GetTutorialsAction;
+
+export interface GetPsettingsAction {
+    action: PsettingsActions.GET3,
+    payload: InterPSettings[]
+}
+export type Actions = LogInAction | LogOutAction | AddCategoriesAction | GetCategoriesAction | AddTutorialsAction | GetTutorialsAction | AddPsettingsAction | GetPsettingsAction;

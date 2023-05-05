@@ -1,0 +1,125 @@
+@media (min-width: 1000px){ 
+    .TutorialsDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        float: left;
+        width: 220px;
+        height: 180px;
+        padding: 10px;
+        margin-bottom: 10px;
+        font-family: 'Kodchasan', sans-serif;
+    }
+    
+    .imgT{
+        width: 220px;
+        border-radius: 20px;
+    
+    }
+    
+    .textT{
+        font-size: 17px;
+        margin: 5px;
+        color: #004CDE;
+    }
+    
+    p{
+        margin: 5px;
+        font-size: 13px;
+        color: #042057;
+    }
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) { 
+    .TutorialsDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        margin-left: 20px;
+        width: 300px;
+        height: 250px;
+        padding: 10px;
+        margin-bottom: 10px;
+        font-family: 'Kodchasan', sans-serif;
+    }
+    
+    .imgT{
+        width: 300px;
+        border-radius: 20px;
+    
+    }
+    
+    .textT{
+        font-size: 18px;
+        margin: 5px;
+        color: #004CDE;
+    }
+    
+    p{
+        margin: 5px;
+        font-size: 13px;
+        color: #042057;
+    }
+}
+
+@media only screen and (min-device-width : 568px) and (max-device-width : 1000px) {
+   .TutorialsDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        float: left;
+        width: 220px;
+        height: 180px;
+        padding: 10px;
+        margin-bottom: 10px;
+        font-family: 'Kodchasan', sans-serif;
+    }
+    
+    .imgT{
+        width: 220px;
+        border-radius: 20px;
+    
+    }
+    
+    .textT{
+        font-size: 17px;
+        margin: 5px;
+        color: #004CDE;
+    }
+    
+    p{
+        margin: 5px;
+        font-size: 13px;
+        color: #042057;
+    }
+}
+@media (min-width: 1500px){
+    .TutorialsDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        float: left;
+        width: 260px;
+        height: 220px;
+        padding: 15px;
+        margin-bottom: 15px;
+        font-family: 'Kodchasan', sans-serif;
+    }
+    
+    .imgT{
+        width: 260px;
+        border-radius: 20px;
+    
+    }
+    
+    .textT{
+        font-size: 20px;
+        margin: 8px;
+        color: #004CDE;
+    }
+    
+    p{
+        margin: 8px;
+        font-size: 18px;
+        color: #042057;
+    }
+}

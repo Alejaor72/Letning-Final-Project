@@ -1,6 +1,7 @@
 import Categories from '../services/Categories'
 import Tutorials from '../services/Tutorials'
-import { AddCategoriesAction, AuthActions, GetCategoriesAction, LogInAction, LogOutAction, CategoriesActions, AddTutorialsAction, GetTutorialsAction, TutorialsActions } from "../types/store"
+import ProfileSettings from '../services/ProfileSettings'
+import { AddCategoriesAction, AuthActions, GetCategoriesAction, LogInAction, LogOutAction, CategoriesActions, AddTutorialsAction, GetTutorialsAction, TutorialsActions , AddPsettingsAction , PsettingsActions , GetPsettingsAction } from "../types/store"
 
 
 export const logOut = (): LogOutAction => {
@@ -45,6 +46,22 @@ export const addNewCategories = ({payload}: Pick<AddCategoriesAction, "payload">
 export const addNewTutorials = ({payload}: Pick<AddTutorialsAction, "payload">): AddTutorialsAction => {
     return {
         action: TutorialsActions.ADD2,
+        payload
+    }
+}
+
+export const getPsettingsAction = async (): Promise<GetPsettingsAction> => {
+    const profileSettings = await ProfileSettings.get();
+    console.log('profile settings',profileSettings);
+    return {
+        action: PsettingsActions.GET3,
+        payload: profileSettings
+    }
+}
+
+export const addPsettingsAction = ({payload}: Pick<AddPsettingsAction, "payload">): AddPsettingsAction => {
+    return {
+        action: PsettingsActions.ADD3,
         payload
     }
 }

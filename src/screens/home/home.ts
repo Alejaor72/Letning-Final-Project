@@ -145,13 +145,17 @@ class Home extends HTMLElement {
       `;
   }
 
-    appState.tutorials.forEach((data) => {
-      const TutorialsCard = this.ownerDocument.createElement("my-tutorials") as Tutorials;
-      TutorialsCard.setAttribute(TutorialsAtt.image, data.image);
-      TutorialsCard.setAttribute(TutorialsAtt.tittle, data.title);
-      TutorialsCard.setAttribute(TutorialsAtt.creator, data.creator);
-      this.TutorialsList.push(TutorialsCard);
-  });
+  const Tutorials = appState.tutorials.filter((user)=>{
+    return user.like === false
+  })
+
+  Tutorials.forEach((data)=>{
+    const TutorialsCard = this.ownerDocument.createElement("my-tutorials") as Tutorials;
+    TutorialsCard.setAttribute(TutorialsAtt.image, data.image);
+    TutorialsCard.setAttribute(TutorialsAtt.tittle, data.title);
+    TutorialsCard.setAttribute(TutorialsAtt.creator, data.creator);
+    this.TutorialsList.push(TutorialsCard);
+  })
 
   const section1 = this.ownerDocument.createElement("section")
   section1.className = 'Section1'

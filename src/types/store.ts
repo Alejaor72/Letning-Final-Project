@@ -2,6 +2,7 @@
 import { InterCategories} from "./Categories"
 import { InterTutorials} from "./Tutorials"
 import { InterPSettings } from "./ProfileSettings";
+import { InterChannels } from "./Channels";
 
 export type Observer = ({ render: () => void } & HTMLElement);
 
@@ -13,6 +14,7 @@ export type AppState = {
     categories: InterCategories[]
     tutorials: InterTutorials[]
     profileSettings: InterPSettings[]
+    channels: InterChannels[]
 }
 
 export enum AuthActions {
@@ -33,6 +35,11 @@ export enum TutorialsActions {
 export enum PsettingsActions {
     "ADD3" = "ADD3",
     "GET3" = "GET3",
+}
+
+export enum ChannelsActions {
+    "ADD4" = "ADD4",
+    "GET4" = "GET4",
 }
 
 export interface LogInAction {
@@ -60,6 +67,11 @@ export interface AddPsettingsAction {
     payload: InterPSettings
 }
 
+export interface AddChannelsAction {
+    action: ChannelsActions.ADD4,
+    payload: InterChannels
+}
+
 export interface GetCategoriesAction {
     action: CategoriesActions.GET,
     payload: InterCategories[]
@@ -74,4 +86,10 @@ export interface GetPsettingsAction {
     action: PsettingsActions.GET3,
     payload: InterPSettings[]
 }
-export type Actions = LogInAction | LogOutAction | AddCategoriesAction | GetCategoriesAction | AddTutorialsAction | GetTutorialsAction | AddPsettingsAction | GetPsettingsAction;
+
+export interface GetChannelsAction {
+    action: ChannelsActions.GET4,
+    payload: InterChannels[]
+}
+
+export type Actions = LogInAction | LogOutAction | AddCategoriesAction | GetCategoriesAction | AddTutorialsAction | GetTutorialsAction | AddPsettingsAction | GetPsettingsAction | AddChannelsAction | GetChannelsAction;

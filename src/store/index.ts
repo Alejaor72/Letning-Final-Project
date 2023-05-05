@@ -10,6 +10,7 @@ const emptyState: AppState = {
   categories: [],
   tutorials: [],
   profileSettings: [],
+  channels: [],
 };
 
 export let appState = Storage.get<AppState>({

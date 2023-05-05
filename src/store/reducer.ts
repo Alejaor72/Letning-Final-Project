@@ -1,4 +1,4 @@
-import { Actions, AppState, AuthActions, CategoriesActions, TutorialsActions , PsettingsActions} from "../types/store";
+import { Actions, AppState, AuthActions, CategoriesActions, TutorialsActions , PsettingsActions , ChannelsActions } from "../types/store";
 
 export const reducer = (currentAction: Actions, currentState: AppState): AppState => {
     const { action, payload } = currentAction; 
@@ -46,6 +46,15 @@ export const reducer = (currentAction: Actions, currentState: AppState): AppStat
                 ]
             }
         
+        case ChannelsActions.ADD4:
+            return {
+                    ...currentState,
+                    profileSettings: [
+                        payload,
+                        ...currentState.profileSettings,
+                    ]
+        }
+
             case CategoriesActions.GET:
             return {
                 ...currentState,
@@ -63,6 +72,12 @@ export const reducer = (currentAction: Actions, currentState: AppState): AppStat
                     ...currentState,
                     profileSettings: payload
             }    
+        
+        case ChannelsActions.GET4:
+            return {
+                        ...currentState,
+                        profileSettings: payload
+            }
 
         default:
             return currentState;

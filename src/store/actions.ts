@@ -1,7 +1,8 @@
 import Categories from '../services/Categories'
 import Tutorials from '../services/Tutorials'
 import ProfileSettings from '../services/ProfileSettings'
-import { AddCategoriesAction, AuthActions, GetCategoriesAction, LogInAction, LogOutAction, CategoriesActions, AddTutorialsAction, GetTutorialsAction, TutorialsActions , AddPsettingsAction , PsettingsActions , GetPsettingsAction } from "../types/store"
+import Channels from '../services/Channel'
+import { AddCategoriesAction, AuthActions, GetCategoriesAction, LogInAction, LogOutAction, CategoriesActions, AddTutorialsAction, GetTutorialsAction, TutorialsActions , AddPsettingsAction , PsettingsActions , GetPsettingsAction , ChannelsActions, AddChannelsAction, GetChannelsAction} from "../types/store"
 
 
 export const logOut = (): LogOutAction => {
@@ -27,6 +28,15 @@ export const getCategories = async (): Promise<GetCategoriesAction> => {
     }
 }
 
+export const getChannels = async (): Promise<GetChannelsAction> => {
+    const channels = await Channels.get();
+    console.log('Channels',channels);
+    return {
+        action: ChannelsActions.GET4,
+        payload: channels
+    }
+}
+
 export const getTutorials = async (): Promise<GetTutorialsAction> => {
     const tutorials = await Tutorials.get();
     console.log('Tutorials',tutorials);
@@ -46,6 +56,13 @@ export const addNewCategories = ({payload}: Pick<AddCategoriesAction, "payload">
 export const addNewTutorials = ({payload}: Pick<AddTutorialsAction, "payload">): AddTutorialsAction => {
     return {
         action: TutorialsActions.ADD2,
+        payload
+    }
+}
+
+export const addNewChannels = ({payload}: Pick<AddChannelsAction, "payload">): AddChannelsAction => {
+    return {
+        action: ChannelsActions.ADD4,
         payload
     }
 }

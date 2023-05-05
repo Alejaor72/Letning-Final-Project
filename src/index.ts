@@ -1,5 +1,7 @@
 import "./screens/homevisitors/homevisitors"
 import "./screens/home/home"
+import "./screens/tutorials/tutorials"
+import "./screens/channels/channel"
 import "./components/export"
 
 class AppContainer extends HTMLElement {
@@ -13,7 +15,7 @@ class AppContainer extends HTMLElement {
     }
 
     render() {
-        const dashboard = this.ownerDocument.createElement('my-home-visitors');
+        const dashboard = this.ownerDocument.createElement('my-channel-profile');
         this.shadowRoot?.appendChild(dashboard);
     }
 }

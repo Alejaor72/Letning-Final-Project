@@ -11,6 +11,8 @@ const emptyState: AppState = {
   tutorials: [],
   profileSettings: [],
   channels: [],
+  chats: [],
+  users: [],
 };
 
 export let appState = Storage.get<AppState>({

@@ -2,7 +2,9 @@ import Categories from '../services/Categories'
 import Tutorials from '../services/Tutorials'
 import ProfileSettings from '../services/ProfileSettings'
 import Channels from '../services/Channel'
-import { AddCategoriesAction, AuthActions, GetCategoriesAction, LogInAction, LogOutAction, CategoriesActions, AddTutorialsAction, GetTutorialsAction, TutorialsActions , AddPsettingsAction , PsettingsActions , GetPsettingsAction , ChannelsActions, AddChannelsAction, GetChannelsAction} from "../types/store"
+import Chats from '../services/Chats'
+import Users from '../services/Users'
+import { AddCategoriesAction, AuthActions, GetCategoriesAction, LogInAction, LogOutAction, CategoriesActions, AddTutorialsAction, GetTutorialsAction, TutorialsActions , AddPsettingsAction , PsettingsActions , GetPsettingsAction , ChannelsActions, AddChannelsAction, GetChannelsAction , ChatsActions, AddChatsAction, GetChatsAction , UsersActions, AddUsersAction, GetUsersAction} from "../types/store"
 
 
 export const logOut = (): LogOutAction => {
@@ -46,6 +48,24 @@ export const getTutorials = async (): Promise<GetTutorialsAction> => {
     }
 }
 
+export const getChats = async (): Promise<GetChatsAction> => {
+    const chats = await Chats.get();
+    console.log('chats',Chats);
+    return {
+        action: ChatsActions.GET5,
+        payload: chats
+    }
+}
+
+export const getUsers = async (): Promise<GetUsersAction> => {
+    const users = await Users.get();
+    console.log('Users',Users);
+    return {
+        action: UsersActions.GET6,
+        payload: users
+    }
+}
+
 export const addNewCategories = ({payload}: Pick<AddCategoriesAction, "payload">): AddCategoriesAction => {
     return {
         action: CategoriesActions.ADD,
@@ -79,6 +99,20 @@ export const getPsettingsAction = async (): Promise<GetPsettingsAction> => {
 export const addPsettingsAction = ({payload}: Pick<AddPsettingsAction, "payload">): AddPsettingsAction => {
     return {
         action: PsettingsActions.ADD3,
+        payload
+    }
+}
+
+export const addChatsAction = ({payload}: Pick<AddChatsAction, "payload">): AddChatsAction => {
+    return {
+        action: ChatsActions.ADD5,
+        payload
+    }
+}
+
+export const addUsersAction = ({payload}: Pick<AddUsersAction, "payload">): AddUsersAction => {
+    return {
+        action: UsersActions.ADD6,
         payload
     }
 }

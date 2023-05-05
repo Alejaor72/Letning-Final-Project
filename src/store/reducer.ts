@@ -1,4 +1,4 @@
-import { Actions, AppState, AuthActions, CategoriesActions, TutorialsActions , PsettingsActions , ChannelsActions } from "../types/store";
+import { Actions, AppState, AuthActions, CategoriesActions, TutorialsActions , PsettingsActions , ChannelsActions , ChatsActions , UsersActions} from "../types/store";
 
 export const reducer = (currentAction: Actions, currentState: AppState): AppState => {
     const { action, payload } = currentAction; 
@@ -54,6 +54,24 @@ export const reducer = (currentAction: Actions, currentState: AppState): AppStat
                         ...currentState.profileSettings,
                     ]
         }
+        
+        case ChatsActions.ADD5:
+            return {
+                    ...currentState,
+                    chats: [
+                        payload,
+                        ...currentState.chats,
+                    ]
+        }
+        
+        case UsersActions.ADD6:
+            return {
+                    ...currentState,
+                    users: [
+                        payload,
+                        ...currentState.users,
+                    ]
+        }
 
             case CategoriesActions.GET:
             return {
@@ -79,6 +97,18 @@ export const reducer = (currentAction: Actions, currentState: AppState): AppStat
                         profileSettings: payload
             }
 
+        case ChatsActions.GET5:
+                return {
+                            ...currentState,
+                            chats: payload
+                }
+        
+        case UsersActions.GET6:
+                return {
+                                ...currentState,
+                                users: payload
+                }
+                    
         default:
             return currentState;
     }

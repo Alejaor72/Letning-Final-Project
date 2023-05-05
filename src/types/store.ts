@@ -3,6 +3,8 @@ import { InterCategories} from "./Categories"
 import { InterTutorials} from "./Tutorials"
 import { InterPSettings } from "./ProfileSettings";
 import { InterChannels } from "./Channels";
+import { InterUsers } from "./Users";
+import { InterChats } from "./Chats";
 
 export type Observer = ({ render: () => void } & HTMLElement);
 
@@ -15,6 +17,8 @@ export type AppState = {
     tutorials: InterTutorials[]
     profileSettings: InterPSettings[]
     channels: InterChannels[]
+    chats: InterChats[]
+    users: InterUsers[]
 }
 
 export enum AuthActions {
@@ -40,6 +44,16 @@ export enum PsettingsActions {
 export enum ChannelsActions {
     "ADD4" = "ADD4",
     "GET4" = "GET4",
+}
+
+export enum ChatsActions {
+    "ADD5" = "ADD5",
+    "GET5" = "GET5",
+}
+
+export enum UsersActions {
+    "ADD6" = "ADD6",
+    "GET6" = "GET6",
 }
 
 export interface LogInAction {
@@ -72,6 +86,16 @@ export interface AddChannelsAction {
     payload: InterChannels
 }
 
+export interface AddChatsAction {
+    action: ChatsActions.ADD5,
+    payload: InterChats
+}
+
+export interface AddUsersAction {
+    action: UsersActions.ADD6,
+    payload: InterUsers
+}
+
 export interface GetCategoriesAction {
     action: CategoriesActions.GET,
     payload: InterCategories[]
@@ -92,4 +116,14 @@ export interface GetChannelsAction {
     payload: InterChannels[]
 }
 
-export type Actions = LogInAction | LogOutAction | AddCategoriesAction | GetCategoriesAction | AddTutorialsAction | GetTutorialsAction | AddPsettingsAction | GetPsettingsAction | AddChannelsAction | GetChannelsAction;
+export interface GetChatsAction {
+    action: ChatsActions.GET5,
+    payload: InterChats[]
+}
+
+export interface GetUsersAction {
+    action: UsersActions.GET6,
+    payload: InterUsers[]
+}
+
+export type Actions = LogInAction | LogOutAction | AddCategoriesAction | GetCategoriesAction | AddTutorialsAction | GetTutorialsAction | AddPsettingsAction | GetPsettingsAction | AddChannelsAction | GetChannelsAction | AddChatsAction | GetChatsAction | AddUsersAction | GetUsersAction;

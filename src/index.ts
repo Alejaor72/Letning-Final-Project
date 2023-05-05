@@ -6,6 +6,7 @@ import "./screens/configuration/configuration"
 import "./screens/login/login"
 import "./screens/sigin/signin"
 import "./screens/video/video"
+import "./screens/messages/messages"
 import "./components/export"
 
 class AppContainer extends HTMLElement {
@@ -19,7 +20,7 @@ class AppContainer extends HTMLElement {
     }
 
     render() {
-        const dashboard = this.ownerDocument.createElement('my-video');
+        const dashboard = this.ownerDocument.createElement('my-messages');
         this.shadowRoot?.appendChild(dashboard);
     }
 }

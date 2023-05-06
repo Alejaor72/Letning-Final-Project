@@ -1,0 +1,147 @@
+*{
+    font-family: 'Kodchasan', sans-serif;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+        
+}
+
+.header h1{
+    margin-left: 2%;
+    font-family: 'Kodchasan', sans-serif;
+
+}
+
+.searchbar{
+    margin-top: 20px;
+    margin-left: 30px;
+    width: 657px;
+    height: 35px;
+    border-radius: 50%;
+    background: #D9D9D9;
+    border-radius: 20px;
+    border-color: transparent;
+}
+
+.createtutorial{
+    margin-top: 20px;
+    color: #042057;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 18px;
+    margin-left: 100px;
+    font-family: 'Kodchasan', sans-serif;
+    font-weight: bold;
+    width: 250px;
+}
+
+.sendIcon{
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.VideoSection{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+
+
+.parteizquierda{
+    width: 60%;
+    padding-left: 30px;
+
+}
+
+.parteizquierda img{
+    margin-top: 30px;
+    width: 700px;
+    border-radius: 20px;
+
+}
+
+
+
+
+.partederecha{
+    margin-top: 30px;
+    width: 40%;
+}
+
+.userinfo{
+    width: 500px;
+    height: 150px;
+    background-color: rgba(217, 217, 217, 0.6);
+    border-radius: 30px;
+}
+
+.userinfo h3{
+    margin-top: 50px;
+    margin-left: 250px;
+
+}
+
+.commentSection{
+    width: 500px;
+    height: 500px;
+    background-color: rgba(217, 217, 217, 0.6);
+    border-radius: 30px;
+}
+
+.commentSection h2{
+    color: #042057;
+}
+
+.comment{
+    background: #042057;
+    border-radius: 10px;
+    color: white;
+    width: 260px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 350px;
+    margin-left: 180px;
+
+}
+
+
+
+.sendSection{
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 50px;
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+
+.commentbar{
+    background: #FFFFFF;
+    border: 3px solid #B0AEAE;
+    border-radius: 10px;
+    width: 280px;
+    margin-top: 5px;
+    margin-left: 5px;
+    height: 30px;
+}
+
+.sendbtn{
+    background: #004CDE;
+    border-radius: 10px;
+    color: white;
+    border-color: transparent;
+    height: 30px;
+    width: 80px;
+    margin-left: 8px;
+    margin-top: 5px;
+    height: 28px;
+
+
+}

@@ -5,7 +5,14 @@ import Channels from '../services/Channel'
 import Chats from '../services/Chats'
 import Users from '../services/Users'
 import { AddCategoriesAction, AuthActions, GetCategoriesAction, LogInAction, LogOutAction, CategoriesActions, AddTutorialsAction, GetTutorialsAction, TutorialsActions , AddPsettingsAction , PsettingsActions , GetPsettingsAction , ChannelsActions, AddChannelsAction, GetChannelsAction , ChatsActions, AddChatsAction, GetChatsAction , UsersActions, AddUsersAction, GetUsersAction} from "../types/store"
+import { NavigateAction, NavigationActions, Screens } from "../types/store";
 
+export const navigate = (screen: Screens): NavigateAction => {
+  return {
+    action: NavigationActions.NAVIGATE,
+    payload: screen,
+  };
+};
 
 export const logOut = (): LogOutAction => {
     return {
@@ -116,3 +123,4 @@ export const addUsersAction = ({payload}: Pick<AddUsersAction, "payload">): AddU
         payload
     }
 }
+

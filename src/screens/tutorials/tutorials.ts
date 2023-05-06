@@ -35,52 +35,34 @@ class TutorialsProfile extends HTMLElement {
     if (this.shadowRoot) {
       this.shadowRoot.innerHTML += `
       <link rel="stylesheet" href="./TutorialsStyle.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
       `;
   }
+  const container = this.ownerDocument.createElement("div")
+  container.className = 'containerall'
   
+  const containerderecha = this.ownerDocument.createElement("div")
+  containerderecha.className = 'containerderecha'
   if (this.shadowRoot) {
       this.shadowRoot.innerHTML += `
       <link rel="stylesheet" href="./TutorialsStyle.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
       <div class="Menu">
         <h2>Letning</h2>
       </div>
       `;
   }
-
-  if (this.shadowRoot) {
-      this.shadowRoot.innerHTML += `
-      <link rel="stylesheet" href="./TutorialsStyle.css">   
-    <div class="ProfilePhoto">
-       <img src="/img/gatico.jpg" alt="" class="image1">
-       <h1>Christian Yu</h1>
-    </div>
-      `;
-  }
-    const css = this.ownerDocument.createElement("style");
-    css.innerHTML = TutorialsStyle;
-    this.shadowRoot?.appendChild(css);
-
-     appState.profileSettings.forEach((data) => {
-        const profileSettingsCard = this.ownerDocument.createElement("my-profile-settings") as Psettings;
-        profileSettingsCard.setAttribute(PSettingsAtt.image, data.image);
-        profileSettingsCard.setAttribute(PSettingsAtt.name, data.title);
-        this.PSettingsList.push(profileSettingsCard);
-    });
-
-    const section1 = this.ownerDocument.createElement("section")
-    section1.className = 'Section2'
     
-    const profileSettingsCards = this.ownerDocument.createElement("div")
-    profileSettingsCards.className = 'PSettingsSection'
-    this.PSettingsList.forEach((profileSettingsCard) => {
-        profileSettingsCards.appendChild(profileSettingsCard)
-    });
-    section1.appendChild(profileSettingsCards)
-    this.shadowRoot?.appendChild(section1);
-
     if (this.shadowRoot) {
       this.shadowRoot.innerHTML += `
       <link rel="stylesheet" href="./TutorialsStyle.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
       <div class="Title">
       <h3>My Tutorials</h3>
       </div>
@@ -109,7 +91,50 @@ class TutorialsProfile extends HTMLElement {
     });
     section2.appendChild(MyTutorialsCards)
     this.shadowRoot?.appendChild(section2);
+    
+    this.shadowRoot?.appendChild(containerderecha);
 
+    const containerizq = this.ownerDocument.createElement("div")
+    containerizq.className = 'containerizq'
+
+    if (this.shadowRoot) {
+      this.shadowRoot.innerHTML += `
+      <link rel="stylesheet" href="./TutorialsStyle.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">   
+    <div class="ProfilePhoto">
+       <img src="/img/gatico.jpg" alt="" class="image1" width="200px">
+       <h1 class="Title">Christian Yu</h1>
+    </div>
+      `;
+  }
+    const css = this.ownerDocument.createElement("style");
+    css.innerHTML = TutorialsStyle;
+    this.shadowRoot?.appendChild(css);
+
+     appState.profileSettings.forEach((data) => {
+        const profileSettingsCard = this.ownerDocument.createElement("my-profile-settings") as Psettings;
+        profileSettingsCard.setAttribute(PSettingsAtt.image, data.image);
+        profileSettingsCard.setAttribute(PSettingsAtt.name, data.title);
+        this.PSettingsList.push(profileSettingsCard);
+    });
+
+    const section1 = this.ownerDocument.createElement("section")
+    section1.className = 'Section2'
+    
+    const profileSettingsCards = this.ownerDocument.createElement("div")
+    profileSettingsCards.className = 'PSettingsSection'
+    this.PSettingsList.forEach((profileSettingsCard) => {
+        profileSettingsCards.appendChild(profileSettingsCard)
+    });
+    section1.appendChild(profileSettingsCards)
+    this.shadowRoot?.appendChild(section1);
+  
+    this.shadowRoot?.appendChild(containerizq);
+
+
+  this.shadowRoot?.appendChild(container);
   }
 }
 

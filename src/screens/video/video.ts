@@ -40,7 +40,7 @@ class Video extends HTMLElement {
                     <h2>Lorem ipsum dolor sit amet</h2>
                     <h3>By: Lorem ipsum</h3>
                     <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                    <img src="/img/Vector.png" class="sendIcon">
+                    <img src="/img/Vector.png" class="sendIcon" width="5px">
                 </div>
             </div>
             

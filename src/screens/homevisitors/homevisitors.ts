@@ -2,13 +2,17 @@ import HomeVisitorsStyle from "./HomeVisitorsStyle.css";
 
 import Categories, { CategoriesAtt } from "../../components/Categories/Categories";
 import Tutorials, { TutorialsAtt } from "../../components/Tutorials/Tutorials";
+
 import { getCategories } from "../../store/actions";
 import { getTutorials} from "../../store/actions";
 import { addObserver, appState, dispatch } from "../../store/index";
+import { Screens } from "../../types/store";
+import { navigate } from "../../store/actions";
 
 class HomeVisitors extends HTMLElement {
   TutorialsList: Tutorials[] = [];
   CategoriesList: Categories[] = [];
+
 
   constructor() {
     super();
@@ -27,7 +31,12 @@ class HomeVisitors extends HTMLElement {
       this.render();
     }
   }
-
+  changescreen(){
+    dispatch(navigate(Screens.SIGNUP));
+  }
+  changescreen2(){
+    dispatch(navigate(Screens.LOGIN));
+  }
   render() {
     if (this.shadowRoot) {
       this.shadowRoot.innerHTML = ``;
@@ -44,13 +53,14 @@ class HomeVisitors extends HTMLElement {
       <div class="Menu">
         <h2>Letning</h2>
         <div class="menutext">
-         <a href="">Sign In</a>
-         <a href="" class="login">Log In</a>
+         <button onclick="changescreen()">Sign In</button>
+         <button class="login" onclick="changescreen2()">Log In</button>
         </div>
       </div>
       `;
   }
-
+  
+  
   if (this.shadowRoot) {
       this.shadowRoot.innerHTML += `
       <link rel="stylesheet" href="./HomeVisitorsStyle.css">   
@@ -67,7 +77,7 @@ class HomeVisitors extends HTMLElement {
     </div>
       `;
   }
-
+ 
   if (this.shadowRoot) {
       this.shadowRoot.innerHTML += `
       <link rel="stylesheet" href="./HomeVisitorsStyle.css">

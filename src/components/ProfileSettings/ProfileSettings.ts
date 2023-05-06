@@ -46,7 +46,7 @@ class Psettings extends HTMLElement {
                 <link rel="stylesheet" href="">
                 <div class="PsettingsDiv">
                     <img class="imgC" src="${this.image}">
-                    <h3 class="textC">${this.name}</h3>
+                    <h3 class="Title">${this.name}</h3>
                 </div>
                 `;
             }

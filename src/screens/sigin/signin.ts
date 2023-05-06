@@ -1,5 +1,7 @@
 import SignInStyle from "./SignInStyle.css"
 import { addObserver, appState, dispatch } from "../../store/index";
+import { Screens } from "../../types/store";
+import { navigate } from "../../store/actions";
 
 class SignIn extends HTMLElement {
   
@@ -14,7 +16,9 @@ class SignIn extends HTMLElement {
             this.render()
         }
     } 
-
+    changescreen(){
+        dispatch(navigate(Screens.LOGIN));
+    }
     render() {
        this.shadowRoot!.innerHTML = ``
 
@@ -23,6 +27,7 @@ class SignIn extends HTMLElement {
         this.shadowRoot?.appendChild(css);
 
         this.shadowRoot!.innerHTML += `
+        <div class="fondo">
         <div class="header">
             <h1>Letning</h1>
             <h2>I already have an account</h2>
@@ -30,7 +35,7 @@ class SignIn extends HTMLElement {
         </div>
         
         <div class="SectorSignin">
-            <img url="https://i.pinimg.com/originals/64/00/17/64001798df0233f43a9885424bd33ae5.png" class="signinIcon">
+            <img src="/img/Ellipse3.png" class="signinIcon">
             <h1 class="signinText">Sign in to begin</h1>
             <h3>Email</h3>
             <input class="input" type="text"></input>
@@ -40,7 +45,8 @@ class SignIn extends HTMLElement {
             <input class="input" type="text"></input>
             <h3>Age</h3>
             <input class="input" type="text"></input>
-            <button class="continueButton">Continue</button>
+            <button class="continueButton" onclick="changescreen()">Continue</button>
+        </div>
         </div>
         `
     }

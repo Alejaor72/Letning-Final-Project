@@ -19,7 +19,15 @@ export type AppState = {
     channels: InterChannels[]
     chats: InterChats[]
     users: InterUsers[]
+    screen: Screens;
 }
+
+export enum Screens {
+    LOGIN = "LOGIN",
+    SIGNUP = "SIGNUP",
+    DASHBOARD = "DASHBOARD",
+    HOME = "HOME"
+  }
 
 export enum AuthActions {
     "LOGIN" = "LOGIN",
@@ -54,6 +62,10 @@ export enum ChatsActions {
 export enum UsersActions {
     "ADD6" = "ADD6",
     "GET6" = "GET6",
+}
+
+export enum NavigationActions {
+  "NAVIGATE" = "NAVIGATE",
 }
 
 export interface LogInAction {
@@ -125,5 +137,9 @@ export interface GetUsersAction {
     action: UsersActions.GET6,
     payload: InterUsers[]
 }
-
-export type Actions = LogInAction | LogOutAction | AddCategoriesAction | GetCategoriesAction | AddTutorialsAction | GetTutorialsAction | AddPsettingsAction | GetPsettingsAction | AddChannelsAction | GetChannelsAction | AddChatsAction | GetChatsAction | AddUsersAction | GetUsersAction;
+export interface NavigateAction {
+    action: NavigationActions.NAVIGATE;
+    payload: Screens;
+  }
+  
+export type Actions = LogInAction | LogOutAction | AddCategoriesAction | GetCategoriesAction | AddTutorialsAction | GetTutorialsAction | AddPsettingsAction | GetPsettingsAction | AddChannelsAction | GetChannelsAction | AddChatsAction | GetChatsAction | AddUsersAction | GetUsersAction | NavigateAction;

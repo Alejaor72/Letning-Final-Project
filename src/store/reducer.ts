@@ -1,4 +1,4 @@
-import { Actions, AppState, AuthActions, CategoriesActions, TutorialsActions , PsettingsActions , ChannelsActions , ChatsActions , UsersActions} from "../types/store";
+import { Actions, AppState, AuthActions, CategoriesActions, TutorialsActions , PsettingsActions , ChannelsActions , ChatsActions , UsersActions, NavigationActions} from "../types/store";
 
 export const reducer = (currentAction: Actions, currentState: AppState): AppState => {
     const { action, payload } = currentAction; 
@@ -108,7 +108,11 @@ export const reducer = (currentAction: Actions, currentState: AppState): AppStat
                                 ...currentState,
                                 users: payload
                 }
-                    
+        case NavigationActions.NAVIGATE:
+                    return {
+                      ...currentState,
+                      screen: payload,
+        };            
         default:
             return currentState;
     }

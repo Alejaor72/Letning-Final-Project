@@ -1,0 +1,393 @@
+body{
+    font-family: 'Kodchasan', sans-serif;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) { 
+    *{
+        padding: 0%;
+        margin: 0%;
+    }
+    .Menu{
+        font-family: 'Kodchasan', sans-serif;
+        margin: 2%;
+        margin-left: 3%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+        flex-direction: row;
+        width: 100%;
+    }
+    .menutext{
+        font-weight: bold;
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        align-items: center;
+        gap: 20px;
+        color: #042057;
+    }
+    .menutext a{
+        font-size: 10px;
+    }
+    .login{
+        background-color: #004CDE;
+        color: #ffffff;
+        padding: 8px;
+        padding-left: 35px;
+        padding-right: 35px;
+        border-radius: 15px;
+    }
+    .Banner{
+        width: 100%;
+        margin-left: 2%;
+        height: 200px;
+        background-image: url(/img/Group11.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        align-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 2%;
+     }
+    .Banner img{
+        display: none;
+        width: 0%;
+        object-fit: none;
+     }
+     .Bannertext{
+         position: absolute;
+         top: 90px;
+         text-align: left;
+         left: 50px;
+         font-family: 'Kodchasan', sans-serif;
+     }
+     .Bannertext h1{
+         width: 280px;
+         font-size: 24px;
+         color: rgb(0, 0, 0);
+         -webkit-text-fill-color: white;
+         -webkit-text-stroke: 1px;
+     }
+     .Bannertext p{
+         width: 280px;
+         font-size: 0px;
+     }
+     .Bannerbuttons{
+         width: 240px;
+         margin-top: 10px;
+         display: flex;
+         justify-content: space-between;
+         font-family: 'Kodchasan', sans-serif;
+     }
+     .Bannerbuttons button{
+         font-family: 'Kodchasan', sans-serif;
+         padding: 5px;
+         padding-left: 10px;
+         padding-right: 10px;
+         border-radius: 5px;
+         font-size: 10px;
+     }
+     .button1{
+         background-color: #000000;
+         color: #ffffff;
+         border: none;
+     }
+     .button2{
+         background-color: transparent;
+         color: #000000;
+         border: solid #000000;
+     }
+     .Title{
+         font-family: 'Kodchasan', sans-serif;
+         color: #042057;
+         margin-left: 3%;
+         font-size: 15px;
+         margin-top: 25px;
+     }
+     section{
+         width: 98%;
+         display: flex;
+         flex-direction: row;
+         overflow-x: auto;
+     }
+     
+    .tutorialsSection{
+        width: 100%;
+        display: grid;
+        flex-direction: column;
+        justify-content: left;
+        align-items: center;
+        justify-items: left;
+        align-content: center;
+        grid-gap: 10px;
+    }
+}
+
+@media only screen and (min-device-width : 568px) and (max-device-width : 1000px) {
+    *{
+        padding: 0%;
+        margin: 0%;
+    }
+    .Menu{
+        font-family: 'Kodchasan', sans-serif;
+        margin: 2%;
+        margin-left: 3%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    .menutext{
+        font-weight: bold;
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        align-items: center;
+        gap: 30px;
+        color: #042057;
+    }
+    .login{
+        background-color: #004CDE;
+        color: #ffffff;
+        padding: 8px;
+        padding-left: 35px;
+        padding-right: 35px;
+        border-radius: 15px;
+    }
+    .Banner{
+       width: 100%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       text-align: center;
+    }
+    .Banner img{
+        width: 96%;
+        object-fit: cover;
+    }
+    .Bannertext{
+        position: absolute;
+        top: 180px;
+        text-align: left;
+        left: 50px;
+        font-family: 'Kodchasan', sans-serif;
+    }
+    .Bannertext h1{
+        width: 320px;
+        font-size: 28px;
+    }
+    .Bannertext p{
+        width: 320px;
+        font-size: 16px;
+        margin-top: 8px;
+    }
+    .Bannerbuttons{
+        width: 320px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Kodchasan', sans-serif;
+    }
+    .Bannerbuttons button{
+        font-family: 'Kodchasan', sans-serif;
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 10px;
+    }
+    .button1{
+        background-color: #004CDE;
+        color: #ffffff;
+        border: none;
+    }
+    .button2{
+        background-color: transparent;
+        color: #042057;
+        border: solid #042057;
+    }
+    .Title{
+        font-family: 'Kodchasan', sans-serif;
+        color: #042057;
+        margin-left: 3%;
+        font-size: 20px;
+        margin-top: 25px;
+    }
+    section{
+        width: 98%;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+    .tutorialsSection{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow-x: auto;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        align-content: center;
+        grid-gap: 30px;
+    }
+}
+
+/* If screen size is MORE than 1000px wide */
+@media (min-width: 1000px){ 
+    *{
+        padding: 0%;
+        margin: 0%;
+    }
+    .Menu{
+        font-family: 'Kodchasan', sans-serif;
+        margin: 2%;
+        margin-left: 3%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    .menutext{
+        font-weight: bold;
+        width: 25%;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        align-items: center;
+        gap: 30px;
+        color: #042057;
+    }
+    .login{
+        background-color: #004CDE;
+        color: #ffffff;
+        padding: 8px;
+        padding-left: 35px;
+        padding-right: 35px;
+        border-radius: 15px;
+    }
+    .Banner{
+       width: 100%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       text-align: center;
+    }
+    .Banner img{
+        width: 96%;
+        object-fit: cover;
+    }
+    .Bannertext{
+        position: absolute;
+        top: 260px;
+        text-align: left;
+        left: 80px;
+        font-family: 'Kodchasan', sans-serif;
+    }
+    .Bannertext h1{
+        width: 360px;
+        font-size: 34px;
+    }
+    .Bannertext p{
+        width: 340px;
+        font-size: 24px;
+        margin-top: 10px;
+    }
+    .Bannerbuttons{
+        width: 350px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Kodchasan', sans-serif;
+    }
+    .Bannerbuttons button{
+        font-family: 'Kodchasan', sans-serif;
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 10px;
+    }
+    .button1{
+        background-color: #004CDE;
+        color: #ffffff;
+        border: none;
+    }
+    .button2{
+        background-color: transparent;
+        color: #042057;
+        border: solid #042057;
+    }
+    .Title{
+        font-family: 'Kodchasan', sans-serif;
+        color: #042057;
+        margin-left: 3%;
+        font-size: 20px;
+        margin-top: 25px;
+    }
+    section{
+        width: 98%;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+}
+
+
+@media (min-width: 1000px) and (max-width: 1199px){
+    .tutorialsSection{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow-x: auto;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        align-content: center;
+        grid-gap: 30px;
+    }
+}
+
+@media (min-width: 1190px) and (max-width: 1800px){
+    .tutorialsSection{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        overflow-x: auto;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        align-content: center;
+        grid-gap: 30px;
+    }
+}
+
+@media (min-width: 1500px){
+    .Bannertext{
+        position: absolute;
+        top: 300px;
+        text-align: left;
+        left: 90px;
+        font-family: 'Kodchasan', sans-serif;
+    }
+    .Menu{
+        font-family: 'Kodchasan', sans-serif;
+        margin: 2%;
+        margin-left: 3%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    .menutext{
+        font-weight: bold;
+        width: 20%;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        align-items: center;
+        gap: 30px;
+        color: #042057;
+    }
+}

@@ -44,11 +44,11 @@ class Home extends HTMLElement {
       <link rel="stylesheet" href="./HomeStyle.css">
       <div class="Menu">
         <h2>Letning</h2>
-         <input></input>
+         <input class="busqueda"></input>
         <div class="menutext">
          <a href="">Create a tutorial</a>
          <a href="" class="profilephoto">
-         <img src="../../img/gatico.jpg" class="perfil" />
+         <img src="../../img/gatico.jpg" class="perfil"/>
          </a>
          <a>
          <img src="../../img/vector.png" class="message" />
@@ -94,7 +94,7 @@ class Home extends HTMLElement {
     });
 
     const section2 = this.ownerDocument.createElement("section")
-    section2.className = 'Section2'
+    section2.className = 'section2'
     
     const CategoriesCards = this.ownerDocument.createElement("div")
     CategoriesCards.className = 'CategoriesSection'

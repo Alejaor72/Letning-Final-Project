@@ -43,7 +43,7 @@ class Categories extends HTMLElement {
         render() {
             if (this.shadowRoot) {
                 this.shadowRoot.innerHTML = `
-                <link rel="stylesheet" href="./app/categories/categories.css">
+                <link rel="stylesheet" href="./categoriestyle.css">
                 <div class="CategoriesDiv">
                     <img class="imgC" src="${this.image}">
                     <h3 class="textC">${this.name}</h3>

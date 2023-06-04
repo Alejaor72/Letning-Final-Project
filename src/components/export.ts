@@ -1,5 +1,6 @@
-export {default as Categories } from './Categories/Categories'
+export {default as Categories } from './CategoriesButton/CategoriesButton'
 export {default as Tutorials } from './Tutorials/Tutorials'
 export {default as Psettings } from './ProfileSettings/ProfileSettings'
 export {default as Chats } from './Chats/Chats'
 export {default as Users } from './Users/Users'
+export { default as SeeTButton} from './SeeTButton/SeeTButton'

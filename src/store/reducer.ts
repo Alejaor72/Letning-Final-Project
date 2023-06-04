@@ -1,119 +1,106 @@
-import { Actions, AppState, AuthActions, CategoriesActions, TutorialsActions , PsettingsActions , ChannelsActions , ChatsActions , UsersActions, NavigationActions} from "../types/store";
+import { Actions, AppState, CategoriesActions, TutorialsActions , PsettingsActions , ChannelsActions , ChatsActions , NavigateActions, UserActions, PostActions} from "../types/store";
 
-export const reducer = (currentAction: Actions, currentState: AppState): AppState => {
-    const { action, payload } = currentAction; 
+export const reducer = (actions: Actions, appState: AppState) => {
+    const {action, payload} = actions;
+
 
     switch (action) {
-        case AuthActions.LOGIN:
-            return {
-                ...currentState,
-                user: payload.user
-            }
-
-        case AuthActions.LOGOUT:
-            return {
-                ...currentState,
-                user: {
-                    userName: "",
-                    email: ""
-                }
-            }
             
         case CategoriesActions.ADD:
             return {
-                ...currentState,
+                ...appState,
                 categories: [
                     payload,
-                    ...currentState.categories,
+                    ...appState.categories,
                 ]
             }
 
         case TutorialsActions.ADD2:
             return {
-                ...currentState,
+                ...appState,
                 tutorials: [
                     payload,
-                    ...currentState.tutorials,
+                    ...appState.tutorials,
                 ]
             }
         
         case PsettingsActions.ADD3:
             return {
-                ...currentState,
+                ...appState,
                 profileSettings: [
                     payload,
-                    ...currentState.profileSettings,
+                    ...appState.profileSettings,
                 ]
             }
         
         case ChannelsActions.ADD4:
             return {
-                    ...currentState,
+                    ...appState,
                     profileSettings: [
                         payload,
-                        ...currentState.profileSettings,
+                        ...appState.profileSettings,
                     ]
         }
         
         case ChatsActions.ADD5:
             return {
-                    ...currentState,
+                    ...appState,
                     chats: [
                         payload,
-                        ...currentState.chats,
+                        ...appState.chats,
                     ]
         }
         
-        case UsersActions.ADD6:
-            return {
-                    ...currentState,
-                    users: [
-                        payload,
-                        ...currentState.users,
-                    ]
-        }
 
             case CategoriesActions.GET:
             return {
-                ...currentState,
+                ...appState,
                 categories: payload
             }
 
         case TutorialsActions.GET2:
             return {
-                ...currentState,
+                ...appState,
                 tutorials: payload
             }
         
         case PsettingsActions.GET3:
             return {
-                    ...currentState,
+                    ...appState,
                     profileSettings: payload
             }    
         
         case ChannelsActions.GET4:
             return {
-                        ...currentState,
+                        ...appState,
                         profileSettings: payload
             }
 
         case ChatsActions.GET5:
                 return {
-                            ...currentState,
+                            ...appState,
                             chats: payload
                 }
         
-        case UsersActions.GET6:
-                return {
-                                ...currentState,
-                                users: payload
-                }
-        case NavigationActions.NAVIGATE:
-                    return {
-                      ...currentState,
-                      screen: payload,
-        };            
-        default:
-            return currentState;
+        
+        
+                case PostActions.SAVE_POST:
+                    appState.Post = [...appState.Post, payload]
+                    return appState
+            
+                case PostActions.GET_POST:
+                    appState.Post = payload
+                    return appState
+        
+                case NavigateActions.NAVIGATE:
+                    appState.screens = payload;
+                    return appState
+        
+                case UserActions.SET_USER:
+                    appState.user = payload;
+                    return appState
+        
+                default:
+                    return appState
     }
 }

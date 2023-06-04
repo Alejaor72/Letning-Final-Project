@@ -1,4 +1,5 @@
 import ChannelStyle from "./ChannelStyle.css";
+import User, { UserAtt } from "../../components/Users/Users";
 
 import Psettings, { PSettingsAtt } from "../../components/ProfileSettings/ProfileSettings";
 import Channels, { ChannelsAtt } from "../../components/Channels/Channels";

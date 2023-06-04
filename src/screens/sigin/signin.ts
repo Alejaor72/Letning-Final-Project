@@ -1,9 +1,13 @@
 import SignInStyle from "./SignInStyle.css"
 import { addObserver, appState, dispatch } from "../../store/index";
-import { Screens } from "../../types/store";
 import { navigate } from "../../store/actions";
+import { Screens } from "../../types/navigation";
+import Firebase from "../../utils/firebase";
 
-class SignIn extends HTMLElement {
+
+const credentials = { email: "", password: "" };
+
+export default class SignIn extends HTMLElement {
   
     constructor() {
       super();
@@ -16,9 +20,16 @@ class SignIn extends HTMLElement {
             this.render()
         }
     } 
-    changescreen(){
-        dispatch(navigate(Screens.LOGIN));
-    }
+    
+    async handleSignUpButton() {
+        const user = await Firebase.registerUser(credentials);
+        console.log(user);
+        if(user) {
+          dispatch(navigate(Screens.LOGIN)) 
+          sessionStorage.clear();
+        };
+      }
+    
     render() {
        this.shadowRoot!.innerHTML = ``
 
@@ -52,4 +63,3 @@ class SignIn extends HTMLElement {
     }
 }
 customElements.define('my-signin', SignIn)
-export default SignIn

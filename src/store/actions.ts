@@ -4,29 +4,12 @@ import ProfileSettings from '../services/ProfileSettings'
 import Channels from '../services/Channel'
 import Chats from '../services/Chats'
 import Users from '../services/Users'
-import { AddCategoriesAction, AuthActions, GetCategoriesAction, LogInAction, LogOutAction, CategoriesActions, AddTutorialsAction, GetTutorialsAction, TutorialsActions , AddPsettingsAction , PsettingsActions , GetPsettingsAction , ChannelsActions, AddChannelsAction, GetChannelsAction , ChatsActions, AddChatsAction, GetChatsAction , UsersActions, AddUsersAction, GetUsersAction} from "../types/store"
-import { NavigateAction, NavigationActions, Screens } from "../types/store";
+import firebase  from "../utils/firebase";
+import { Screens } from "../types/navigation";
+import { Post } from "../types/post";
+import { AddCategoriesAction, GetCategoriesAction, CategoriesActions, AddTutorialsAction, GetTutorialsAction, TutorialsActions , AddPsettingsAction , PsettingsActions , GetPsettingsAction , ChannelsActions, AddChannelsAction, GetChannelsAction , ChatsActions, AddChatsAction, GetChatsAction } from "../types/store"
+import { Actions, NavigateActions, UserActions, PostActions } from "../types/store"
 
-export const navigate = (screen: Screens): NavigateAction => {
-  return {
-    action: NavigationActions.NAVIGATE,
-    payload: screen,
-  };
-};
-
-export const logOut = (): LogOutAction => {
-    return {
-        action: AuthActions.LOGOUT,
-        payload: undefined
-    }
-}
-
-export const logIn = ({payload}: Pick<LogInAction, "payload">): LogInAction => {
-    return {
-        action: AuthActions.LOGIN,
-        payload
-    }
-}
 
 export const getCategories = async (): Promise<GetCategoriesAction> => {
     const categories = await Categories.get();
@@ -61,15 +44,6 @@ export const getChats = async (): Promise<GetChatsAction> => {
     return {
         action: ChatsActions.GET5,
         payload: chats
-    }
-}
-
-export const getUsers = async (): Promise<GetUsersAction> => {
-    const users = await Users.get();
-    console.log('Users',Users);
-    return {
-        action: UsersActions.GET6,
-        payload: users
     }
 }
 
@@ -117,10 +91,32 @@ export const addChatsAction = ({payload}: Pick<AddChatsAction, "payload">): AddC
     }
 }
 
-export const addUsersAction = ({payload}: Pick<AddUsersAction, "payload">): AddUsersAction => {
+export const setUserCredentials = (user: string) => {
     return {
-        action: UsersActions.ADD6,
-        payload
+      action: UserActions.SET_USER,
+      payload: user,
+    };
+  };  
+  
+  export const SavePost = async (post: Post): Promise<Actions>=>{
+    await firebase.SavePostDB(post);
+    return{
+        action: PostActions.SAVE_POST,
+        payload: post,
     }
-}
+  }
+  
+  export const getPosts = async(): Promise<Actions>=>{
+      const Posts = await firebase.GetPostDB();
+      return{
+          action: PostActions.GET_POST,
+          payload: Posts,
+      }
+  }
+  export const navigate = (screen: Screens) => {
+      return {
+        action: NavigateActions.NAVIGATE,
+        payload: screen,
+      };
+    };
 

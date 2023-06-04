@@ -1,6 +1,6 @@
 import HomeStyle from "./HomeStyle.css";
 
-import Categories, { CategoriesAtt } from "../../components/Categories/Categories";
+import Categories, { CategoriesAtt } from "../../components/CategoriesButton/CategoriesButton";
 import Tutorials, { TutorialsAtt } from "../../components/Tutorials/Tutorials";
 import { getCategories } from "../../store/actions";
 import { getTutorials} from "../../store/actions";

@@ -3,7 +3,6 @@ import Tutorials from '../services/Tutorials'
 import ProfileSettings from '../services/ProfileSettings'
 import Channels from '../services/Channel'
 import Chats from '../services/Chats'
-import Users from '../services/Users'
 import firebase  from "../utils/firebase";
 import { Screens } from "../types/navigation";
 import { Post } from "../types/post";

@@ -1,7 +1,9 @@
 export interface Post {
     id: string;
-    img: string;
-    title: string;
-    message: string;
+    image: string;
+    name: string;
+    description: string;
     createdAt: string;
+    like: boolean;
+    categories: string;
 }

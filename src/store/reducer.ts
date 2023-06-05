@@ -1,4 +1,4 @@
-import { Actions, AppState, CategoriesActions, TutorialsActions , PsettingsActions , ChannelsActions , ChatsActions , NavigateActions, UserActions, PostActions} from "../types/store";
+import { Actions, AppState, CategoriesActions, PsettingsActions , NavigateActions, UserActions, PostActions} from "../types/store";
 
 export const reducer = (actions: Actions, appState: AppState) => {
     const {action, payload} = actions;
@@ -14,15 +14,6 @@ export const reducer = (actions: Actions, appState: AppState) => {
                     ...appState.categories,
                 ]
             }
-
-        case TutorialsActions.ADD2:
-            return {
-                ...appState,
-                tutorials: [
-                    payload,
-                    ...appState.tutorials,
-                ]
-            }
         
         case PsettingsActions.ADD3:
             return {
@@ -33,24 +24,6 @@ export const reducer = (actions: Actions, appState: AppState) => {
                 ]
             }
         
-        case ChannelsActions.ADD4:
-            return {
-                    ...appState,
-                    profileSettings: [
-                        payload,
-                        ...appState.profileSettings,
-                    ]
-        }
-        
-        case ChatsActions.ADD5:
-            return {
-                    ...appState,
-                    chats: [
-                        payload,
-                        ...appState.chats,
-                    ]
-        }
-        
 
             case CategoriesActions.GET:
             return {
@@ -58,29 +31,12 @@ export const reducer = (actions: Actions, appState: AppState) => {
                 categories: payload
             }
 
-        case TutorialsActions.GET2:
-            return {
-                ...appState,
-                tutorials: payload
-            }
         
         case PsettingsActions.GET3:
             return {
                     ...appState,
                     profileSettings: payload
             }    
-        
-        case ChannelsActions.GET4:
-            return {
-                        ...appState,
-                        profileSettings: payload
-            }
-
-        case ChatsActions.GET5:
-                return {
-                            ...appState,
-                            chats: payload
-                }
         
         
         

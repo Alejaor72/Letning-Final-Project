@@ -11,6 +11,7 @@ import {
   browserSessionPersistence,
   onAuthStateChanged
 } from "firebase/auth";
+import { Post } from "../types/post";
 
 
 const firebaseConfig = {
@@ -101,10 +102,37 @@ const loginUser = async ({
   });
 };
 
+const SavePostDB = async (post: Omit<Post, "id">) => {
+  try {
+    const where = collection(db, "posts");
+    await addDoc(where, { ...post, createdAt: new Date() });
+    console.log("se añadió servidor con éxito");
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+const GetPostDB = async () => {
+  console.log("Entrando en GETpostDB")
+  const q = query(collection(db, "posts"), orderBy("createdAt"));
+  const querySnapshot = await getDocs(q);
+  const transformed: Array<Post> = [];
+
+  querySnapshot.forEach((doc) => {
+    const data: Omit<Post, "id"> = doc.data() as any;
+    transformed.push({ id: doc.id, ...data });
+  });
+  console.log(transformed)
+  return transformed;
+};
+
 
 export {auth}
 export {db}
 export default {
+  SavePostDB,
+  GetPostDB,
   registerUser,
   loginUser,
   onAuthStateChanged,

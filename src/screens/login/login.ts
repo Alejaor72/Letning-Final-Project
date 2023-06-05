@@ -1,47 +1,118 @@
 import LoginStyle from "./LoginStyle.css"
-import { addObserver, appState, dispatch } from "../../store/index";
-import { Screens } from "../../types/store";
+import LoginDiv from "../../components/LoginDiv/LoginDiv";
+import ButtonLogInEnter from "../../components/ButtonLoginEnter/ButtonLoginEnter";
+import SignIntextDiv from "../../components/SignIntextDiv/SignIntextDiv";
 import { navigate } from "../../store/actions";
+import Firebase from "../../utils/firebase";
+import { Screens } from "../../types/navigation";
+import { addObserver, appState, dispatch } from "../../store/index";
 
+const credentials = { email: "", password: "" };
 
-class Login extends HTMLElement {
-  
+export default class Login extends HTMLElement {
+
     constructor() {
       super();
       this.attachShadow({ mode: "open" });
       addObserver(this);
+      
     }
-
+  
     connectedCallback() {
-        if (this.shadowRoot) {
-            this.render()
-        }
-    } 
-    changescreen(){
-        dispatch(navigate(Screens.HOME));
+      this.render();
+      console.log('AppState',appState.user);
     }
+  
+    async handleLoginButton() {
+      Firebase.loginUser(credentials);
+      console.log(appState.user)
+    }
+  
+    changeWindow(){
+      dispatch(navigate(Screens.SIGNUP))
+    }
+  
+    backWindow(){
+      dispatch(navigate(Screens.DASHBOARD))
+    }
+  
     render() {
-       this.shadowRoot!.innerHTML = ``
-
-        const css = this.ownerDocument.createElement("style");
-        css.innerHTML = LoginStyle;
-        this.shadowRoot?.appendChild(css);
-
-        this.shadowRoot!.innerHTML += `
-        <div class="fondologin">
-        <div class="SectorLogin">
-            <h1>Welcome Back</h1>
-            <h3>Email</h3>
-            <input class="input" type="text"></input>
-            <h3>Password</h3>
-            <input class="input" type="text"></input>
-            <button class="forgotBtn">¿Forgot your Password?</button>
-            <button class="logInButton">Log In</button>
-            <p>¿First time in letning? <a class="registerbtn">Register</a></p>
-        </div>
-    </div>
-        `
+      
+      if (this.shadowRoot) {
+          this.shadowRoot.innerHTML = ``;
+        
+          const css = this.ownerDocument.createElement("style");
+          css.innerHTML = LoginStyle;
+          this.shadowRoot?.appendChild(css);
+  
+      }
+  
+      const container = this.ownerDocument.createElement("section")
+      container.className = 'container'
+  
+      const LoginCard = this.ownerDocument.createElement("section")
+      LoginCard.className = 'LoginCard'
+  
+      const icon = this.ownerDocument.createElement("img")
+      icon.src = "/img/arrow_left.png"
+      icon.className = "iconArrow"
+      icon.addEventListener("click", this.backWindow);
+      LoginCard.appendChild(icon)
+  
+      const loginDiv = this.ownerDocument.createElement("login-div") as LoginDiv;
+      LoginCard.appendChild(loginDiv)
+      this.shadowRoot?.appendChild(LoginCard);
+  
+      const InputSection = this.ownerDocument.createElement("section")
+      InputSection.className = 'BigInputSection'
+      
+      const emailText = this.ownerDocument.createElement("h6");
+      emailText.className = "Email"
+      const email = this.ownerDocument.createElement("input");
+      email.className = "BigInput"
+      email.type = "email";
+      email.addEventListener(
+        "change",
+        (e: any) => (credentials.email = e.target.value)
+      );
+      InputSection.appendChild(email);
+      
+      const passwordText = this.ownerDocument.createElement("h6");
+      passwordText.className = "Password"
+      const password = this.ownerDocument.createElement("input");
+      password.className = "BigInput"
+      password.type = "password";
+      password.addEventListener(
+        "change",
+        (e: any) => (credentials.password = e.target.value)
+      );
+      InputSection.appendChild(password);
+      LoginCard.appendChild(InputSection)
+  
+      const buttonLog = this.ownerDocument.createElement("button-login-enter") as ButtonLogInEnter;
+      buttonLog.addEventListener("click", this.handleLoginButton);
+      LoginCard.appendChild(buttonLog)
+  
+      const DescriptionDiv = this.ownerDocument.createElement("section")
+      DescriptionDiv.className = "DescriptionDiv"
+  
+      const descLogin = this.ownerDocument.createElement("signin-textdiv") as SignIntextDiv;
+      DescriptionDiv.appendChild(descLogin)
+  
+      const buttonSignUp = this.ownerDocument.createElement("button");
+      buttonSignUp.innerText = "Register"
+      buttonSignUp.className = "LinkSignIn"
+      buttonSignUp.addEventListener("click", this.changeWindow);
+      DescriptionDiv.appendChild(buttonSignUp)
+  
+      LoginCard.appendChild(DescriptionDiv)
+      this.shadowRoot?.appendChild(LoginCard);
+  
+  
+      container.appendChild(LoginCard);
+      this.shadowRoot?.appendChild(container);
+  
     }
-}
-customElements.define('my-login', Login)
-export default Login
+  }
+  
+  customElements.define("login-channel", Login);

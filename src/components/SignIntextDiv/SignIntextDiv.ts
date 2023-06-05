@@ -30,15 +30,15 @@ class SignIntextDiv extends HTMLElement {
         text.className = "text"
         text.textContent = '¿First time in Letning?';
 
-        const button = this.ownerDocument.createElement('button');
-        button.className = "SignIntextDiv"
-        button.textContent = 'Register';
-        button.addEventListener("click", () => {
-            dispatch(navigate(Screens.SIGNUP));
-          });
+        //const button = this.ownerDocument.createElement('button');
+        //button.className = "SignIntextDiv"
+        //button.textContent = 'Register';
+        //button.addEventListener("click", () => {
+            //dispatch(navigate(Screens.SIGNUP));
+          //});
         
        container.appendChild(text)
-       container.appendChild(button)
+       //container.appendChild(button)
        
 
        this.shadowRoot?.appendChild(container);

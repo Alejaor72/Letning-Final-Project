@@ -1,0 +1,12 @@
+
+.ButtonSignUp{
+    background: #004CDE;
+    border-radius: 10px;
+    color: white;
+    border-color: transparent;
+    height: 50px;
+    width: 100px;
+    margin-left: 30px;
+    margin-top: 20px;
+    height: 28px;
+}

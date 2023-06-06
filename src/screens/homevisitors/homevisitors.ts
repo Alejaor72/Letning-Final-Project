@@ -62,7 +62,25 @@ export default class HomeVisitors extends HTMLElement  {
     loginbutton.appendChild(UpPart)
     this.shadowRoot?.appendChild(UpPart);
 
+    const Banner = this.ownerDocument.createElement("section")
+    Banner.className = 'Banner'
+    
+    const bannerImage = this.ownerDocument.createElement("banner-dashboard") as BannerDashboard;
+    bannerImage.appendChild(Banner)
+    const seeButton = this.ownerDocument.createElement("see-tbutton") as SeeTButton;
+    seeButton.appendChild(Banner)
+    const accountButton = this.ownerDocument.createElement("createa-button") as CreateAButton;
+    accountButton.appendChild(Banner)
+    this.shadowRoot?.appendChild(Banner);
 
+    const usernameText = this.ownerDocument.createElement("h2");
+    usernameText.textContent = "Select categories"
+    const Categoriesdiv = this.ownerDocument.createElement("div")
+    Categoriesdiv.className = 'Categoriesdiv'
+
+    const Categories = this.ownerDocument.createElement("my-categories-button") as CategoriesButton;
+    Categories.appendChild(Categoriesdiv)
+    this.shadowRoot?.appendChild(Categoriesdiv);
   }
   
 }

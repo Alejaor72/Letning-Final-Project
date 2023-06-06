@@ -7,6 +7,7 @@ import ButtonLogin from "../../components/ButtonLogIn/ButtonLogIn";
 import BannerDashboard from "../../components/BannerDashboard/BannerDashboard";
 import SeeTButton from "../../components/SeeTButton/SeeTButton";
 import CreateAButton from "../../components/CreateAButton/CreateAButton";
+import CategoriesButton from "../../components/CategoriesButton/CategoriesButton";
 import { getCategories } from "../../store/actions";
 import { addObserver, appState, dispatch } from "../../store/index";
 import { setUserCredentials } from "../../store/actions";
@@ -55,26 +56,27 @@ export default class HomeVisitors extends HTMLElement  {
     UpPart.className = 'UpPart'
     
     const logo = this.ownerDocument.createElement("logo-div") as LogoDiv;
-    logo.appendChild(UpPart)
+    UpPart.appendChild(logo)
     const siginbutton = this.ownerDocument.createElement("button-signin") as ButtonSignIn;
-    siginbutton.appendChild(UpPart)
+    UpPart.appendChild(siginbutton)
     const loginbutton = this.ownerDocument.createElement("button-login") as ButtonLogin;
-    loginbutton.appendChild(UpPart)
+    UpPart.appendChild(loginbutton)
     this.shadowRoot?.appendChild(UpPart);
 
     const Banner = this.ownerDocument.createElement("section")
     Banner.className = 'Banner'
     
     const bannerImage = this.ownerDocument.createElement("banner-dashboard") as BannerDashboard;
-    bannerImage.appendChild(Banner)
+    Banner.appendChild(bannerImage)
     const seeButton = this.ownerDocument.createElement("see-tbutton") as SeeTButton;
-    seeButton.appendChild(Banner)
+    Banner.appendChild(seeButton)
     const accountButton = this.ownerDocument.createElement("createa-button") as CreateAButton;
-    accountButton.appendChild(Banner)
+    Banner.appendChild(accountButton)
     this.shadowRoot?.appendChild(Banner);
 
     const categoriesText = this.ownerDocument.createElement("h2");
     categoriesText.textContent = "Select categories"
+    this.shadowRoot?.appendChild(categoriesText);
     const Categoriesdiv = this.ownerDocument.createElement("div")
     Categoriesdiv.className = 'Categoriesdiv'
 
@@ -83,7 +85,7 @@ export default class HomeVisitors extends HTMLElement  {
     this.shadowRoot?.appendChild(css);
 
      appState.categories.forEach((data) => {
-        const CategoriesCard = this.ownerDocument.createElement("my-categories") as Categories;
+        const CategoriesCard = this.ownerDocument.createElement("my-categories-button") as CategoriesButton;
         CategoriesCard.setAttribute(CategoriesAtt.image, data.image);
         CategoriesCard.setAttribute(CategoriesAtt.name, data.title);
         this.CategoriesList.push(CategoriesCard);
@@ -102,6 +104,7 @@ export default class HomeVisitors extends HTMLElement  {
 
     const tutorialsText = this.ownerDocument.createElement("h2");
     tutorialsText.textContent = "Select categories"
+    this.shadowRoot?.appendChild(tutorialsText);
     const tutorialsdiv = this.ownerDocument.createElement("div")
     tutorialsdiv.className = 'tutorialsdiv'
     

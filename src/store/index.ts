@@ -7,11 +7,15 @@ import { Screens } from "../types/navigation";
 import { navigate } from "./actions";
 import { setUserCredentials } from "./actions";
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (u: any) => {
   console.log('Entra');
-  console.log('user',user)
-  if (user) {
-    user.email !== null ? dispatch(setUserCredentials(user.email)) : '';
+  console.log('user', u)
+  if (u) {
+    u.email !== null ? dispatch(setUserCredentials(u)): '';
+    appState.userInfo.uid = u.uid
+    appState.userInfo.email = u.email
+    const userNameXD = String(u.email).slice(0, -10)
+    appState.userInfo.username = userNameXD
     dispatch(navigate(Screens.HOME));
   } else {
     dispatch(navigate(Screens.DASHBOARD));
@@ -20,13 +24,17 @@ onAuthStateChanged(auth, (user) => {
 
 const emptyState: AppState = {
   categories: [],
-  tutorials: [],
   profileSettings: [],
-  channels: [],
-  chats: [],
   Post: [],
   screens: Screens.DASHBOARD,
   user: "",
+  userInfo: {
+    uid: "",
+    username: "",
+    email: "",
+    password: "",
+    image: "/img/Group 14.png",
+  },
 };
 
 export let appState = Storage.get<AppState>({

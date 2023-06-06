@@ -1,26 +1,23 @@
 export type Observer = { render: () => void } & HTMLElement;
 import { Screens } from "./navigation";
 import { Post } from "./post";
+import { User } from "./user";
 import { InterCategories} from "./Categories"
-import { InterTutorials} from "./Tutorials"
 import { InterPSettings } from "./ProfileSettings";
-import { InterChannels } from "./Channels";
-import { InterChats } from "./Chats";
 
 
 export type AppState = {
     categories: InterCategories[]
-    tutorials: InterTutorials[]
     profileSettings: InterPSettings[]
-    channels: InterChannels[]
-    chats: InterChats[]
     Post: Post[];
     screens: Screens;
     user: string;
+    userInfo: User
 }
 
 export enum UserActions {
     "SET_USER" = "SET_USER",
+    "ADD_USER" = "ADD_USER"
   }
     
   export enum PostActions {
@@ -52,30 +49,19 @@ export enum UserActions {
       action: UserActions.SET_USER;
       payload: string
   }
+  export interface AddUser {
+    action: UserActions.ADD_USER,
+    payload: User
+  }
 
 export enum CategoriesActions {
     "ADD" = "ADD",
     "GET" = "GET",
 }
 
-export enum TutorialsActions {
-    "ADD2" = "ADD2",
-    "GET2" = "GET2",
-}
-
 export enum PsettingsActions {
     "ADD3" = "ADD3",
     "GET3" = "GET3",
-}
-
-export enum ChannelsActions {
-    "ADD4" = "ADD4",
-    "GET4" = "GET4",
-}
-
-export enum ChatsActions {
-    "ADD5" = "ADD5",
-    "GET5" = "GET5",
 }
 
 
@@ -89,24 +75,10 @@ export interface AddCategoriesAction {
     payload: InterCategories
 }
 
-export interface AddTutorialsAction {
-    action: TutorialsActions.ADD2,
-    payload: InterTutorials
-}
 
 export interface AddPsettingsAction {
     action: PsettingsActions.ADD3,
     payload: InterPSettings
-}
-
-export interface AddChannelsAction {
-    action: ChannelsActions.ADD4,
-    payload: InterChannels
-}
-
-export interface AddChatsAction {
-    action: ChatsActions.ADD5,
-    payload: InterChats
 }
 
 
@@ -115,24 +87,10 @@ export interface GetCategoriesAction {
     payload: InterCategories[]
 }
 
-export interface GetTutorialsAction {
-    action: TutorialsActions.GET2,
-    payload: InterTutorials[]
-}
 
 export interface GetPsettingsAction {
     action: PsettingsActions.GET3,
     payload: InterPSettings[]
-}
-
-export interface GetChannelsAction {
-    action: ChannelsActions.GET4,
-    payload: InterChannels[]
-}
-
-export interface GetChatsAction {
-    action: ChatsActions.GET5,
-    payload: InterChats[]
 }
 
 export interface NavigateAction {
@@ -140,4 +98,4 @@ export interface NavigateAction {
     payload: Screens;
   }
   
-export type Actions = SetUser |Navigate | SavePost | GetPost| AddCategoriesAction | GetCategoriesAction | AddTutorialsAction | GetTutorialsAction | AddPsettingsAction | GetPsettingsAction | AddChannelsAction | GetChannelsAction | AddChatsAction | GetChatsAction | NavigateAction;
+export type Actions = SetUser |Navigate | SavePost | GetPost| AddCategoriesAction | GetCategoriesAction  | AddPsettingsAction | GetPsettingsAction | NavigateAction| AddUser;

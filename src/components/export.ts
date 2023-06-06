@@ -23,6 +23,11 @@ export {default as ShowButton } from './ShowButton/ShowButton'
 export {default as SignIntextDiv } from './SignIntextDiv/SignIntextDiv'
 export {default as UploadVideoButton } from './UploadVideoButton/UploadVideoButton'
 export {default as VideosCard } from './VideosCard/VideosCard'
+export {default as LoginDiv } from './LoginDiv/LoginDiv'
+export {default as SigninDiv } from './SigninDiv/SigninDiv'
+export {default as CheckBoxSignIn } from './CheckBoxSignIn/CheckBox'
+
+
 
 
 

@@ -67,7 +67,7 @@ export default class Login extends HTMLElement {
       InputSection.className = 'BigInputSection'
       
       const emailText = this.ownerDocument.createElement("h6");
-      emailText.className = "Email"
+      emailText.textContent = "Email"
       const email = this.ownerDocument.createElement("input");
       email.className = "BigInput"
       email.type = "email";
@@ -78,7 +78,7 @@ export default class Login extends HTMLElement {
       InputSection.appendChild(email);
       
       const passwordText = this.ownerDocument.createElement("h6");
-      passwordText.className = "Password"
+      passwordText.textContent = "Password"
       const password = this.ownerDocument.createElement("input");
       password.className = "BigInput"
       password.type = "password";

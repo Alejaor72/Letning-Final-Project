@@ -1,4 +1,4 @@
-export {default as CategoriesButton } from './CategoriesButton/CategoriesButton'
+export {default as Categories } from './CategoriesButton/CategoriesButton'
 export {default as TutorialsCard } from './Tutorials/Tutorials'
 export {default as Psettings } from './ProfileSettings/ProfileSettings'
 export { default as SeeTButton} from './SeeTButton/SeeTButton'

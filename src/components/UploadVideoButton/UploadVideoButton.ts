@@ -1,15 +1,23 @@
 
 import UploadVideoButtonStyle from "./UploadVideoButton.css"
-import { dispatch } from "../../store";
-import { navigate } from "../../store/actions";
 import { Screens } from "../../types/navigation";
+import { Post } from "../../types/post";
+import { appState, dispatch } from "../../store";
+import { SavePost, navigate } from "../../store/actions";
+import firebase from "../../utils/firebase";
+
+const postForm: Post = {
+    id: "",
+    image: "",
+    name: "",
+    description: "",
+    categories: "",
+    like: false
+}
 
 class UploadVideoButton extends HTMLElement {
     button?: HTMLElement;
 
-    onButtonClicked() {
-        
-    }
 
     connectedCallback(){
         this.render();
@@ -22,7 +30,10 @@ class UploadVideoButton extends HTMLElement {
         this.button = this.ownerDocument.createElement('button');
         this.button.className = "UploadVideoButton"
         this.button.textContent = 'Upload';
-        this.button.addEventListener("click",this.onButtonClicked);
+        this.button.addEventListener("click", async ()=>{
+            console.log(postForm)
+            dispatch(await SavePost(postForm))
+        })
     }
 
     render() {

@@ -7,6 +7,7 @@ import ButtonLogin from "../../components/ButtonLogIn/ButtonLogIn";
 import BannerDashboard from "../../components/BannerDashboard/BannerDashboard";
 import SeeTButton from "../../components/SeeTButton/SeeTButton";
 import CreateAButton from "../../components/CreateAButton/CreateAButton";
+import TutorialsCard from "../../components/Tutorials/Tutorials";
 import CategoriesButton from "../../components/CategoriesButton/CategoriesButton";
 import { getCategories } from "../../store/actions";
 import { addObserver, appState, dispatch } from "../../store/index";
@@ -25,8 +26,12 @@ export default class HomeVisitors extends HTMLElement  {
     addObserver(this);
   }
 
-  connectedCallback() {
+  async connectedCallback() {
     this.render();
+    if (appState.categories.length === 0) {
+      const action = await getCategories();
+      dispatch(action);
+    }
   }
   
   logOutUser(){
@@ -39,7 +44,8 @@ export default class HomeVisitors extends HTMLElement  {
       location.reload();
     }
   }
-
+  
+  
   async render() {
     if (this.shadowRoot) {
       this.shadowRoot.innerHTML = ``;
@@ -55,8 +61,16 @@ export default class HomeVisitors extends HTMLElement  {
     const UpPart = this.ownerDocument.createElement("section")
     UpPart.className = 'UpPart'
     
-    const logo = this.ownerDocument.createElement("logo-div") as LogoDiv;
-    UpPart.appendChild(logo)
+    if (this.shadowRoot) {
+      this.shadowRoot.innerHTML += `
+      <link rel="stylesheet" href="./HomeVisitorsStyle.css">
+      <div class="Menu">
+        <h2>Letning</h2>
+      </div>
+      `;
+    }
+    //const logo = this.ownerDocument.createElement("logo-div") as LogoDiv;
+    //UpPart.appendChild(logo)
     const siginbutton = this.ownerDocument.createElement("button-signin") as ButtonSignIn;
     UpPart.appendChild(siginbutton)
     const loginbutton = this.ownerDocument.createElement("button-login") as ButtonLogin;
@@ -66,6 +80,18 @@ export default class HomeVisitors extends HTMLElement  {
     const Banner = this.ownerDocument.createElement("section")
     Banner.className = 'Banner'
     
+    if (this.shadowRoot) {
+      this.shadowRoot.innerHTML += `
+      <link rel="stylesheet" href="./HomeVisitorsStyle.css">   
+    <div class="Banner">
+       <img src="/img/Component1.jpg" alt="" class="image1">
+       <div class="Bannertext">
+        <h1>Letning is a platform of variety tutorials</h1>
+        <p>Learn with people of all kinds, and from anywhere.</p>
+      </div>
+    </div>
+      `;
+    }
     const bannerImage = this.ownerDocument.createElement("banner-dashboard") as BannerDashboard;
     Banner.appendChild(bannerImage)
     const seeButton = this.ownerDocument.createElement("see-tbutton") as SeeTButton;
@@ -77,15 +103,19 @@ export default class HomeVisitors extends HTMLElement  {
     const categoriesText = this.ownerDocument.createElement("h2");
     categoriesText.textContent = "Select categories"
     this.shadowRoot?.appendChild(categoriesText);
-    const Categoriesdiv = this.ownerDocument.createElement("div")
-    Categoriesdiv.className = 'Categoriesdiv'
+    
+    //if (this.shadowRoot) {
+      //this.shadowRoot.innerHTML += `
+      //<link rel="stylesheet" href="./HomeVisitorsStyle.css">
+      //<div class="Title">
+      //<h3>Select the Categories</h3>
+      //</div>
+      //`;
+      //}
+    
 
-    const css = this.ownerDocument.createElement("style");
-    css.innerHTML = HomeVisitorsStyle;
-    this.shadowRoot?.appendChild(css);
-
-     appState.categories.forEach((data) => {
-        const CategoriesCard = this.ownerDocument.createElement("my-categories-button") as CategoriesButton;
+    appState.categories.forEach((data) => {
+        const CategoriesCard = this.ownerDocument.createElement("my-categories") as Categories;
         CategoriesCard.setAttribute(CategoriesAtt.image, data.image);
         CategoriesCard.setAttribute(CategoriesAtt.name, data.title);
         this.CategoriesList.push(CategoriesCard);
@@ -97,21 +127,30 @@ export default class HomeVisitors extends HTMLElement  {
     const CategoriesCards = this.ownerDocument.createElement("div")
     CategoriesCards.className = 'CategoriesSection'
     this.CategoriesList.forEach((CategoriesCard) => {
-      CategoriesCards.appendChild(CategoriesCard)
+     CategoriesCards.appendChild(CategoriesCard)
     });
+    this.shadowRoot?.appendChild(CategoriesCards);
+
     section2.appendChild(CategoriesCards)
     this.shadowRoot?.appendChild(section2);
 
     const tutorialsText = this.ownerDocument.createElement("h2");
-    tutorialsText.textContent = "Select categories"
+    tutorialsText.textContent = "Tutorials"
     this.shadowRoot?.appendChild(tutorialsText);
+    
     const tutorialsdiv = this.ownerDocument.createElement("div")
     tutorialsdiv.className = 'tutorialsdiv'
+
+    const PostCards = this.ownerDocument.createElement("tutorials-card") as TutorialsCard;
+    tutorialsdiv.appendChild(PostCards)
+    this.shadowRoot?.appendChild(tutorialsdiv);
     
+
+
     container.appendChild(UpPart);
     container.appendChild(Banner);
-    container.appendChild(Categoriesdiv);
     container.appendChild(section2);
+    container.appendChild(tutorialsdiv);
     this.shadowRoot?.appendChild(container);
   }
   

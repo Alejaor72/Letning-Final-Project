@@ -3,6 +3,4 @@ export interface Post {
     image: string;
     name: string;
     description: string;
-    like: boolean;
-    categories: string;
 }

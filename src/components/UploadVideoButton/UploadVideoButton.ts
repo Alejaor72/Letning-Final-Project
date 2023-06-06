@@ -10,9 +10,7 @@ const postForm: Post = {
     id: "",
     image: "",
     name: "",
-    description: "",
-    categories: "",
-    like: false
+    description: ""
 }
 
 class UploadVideoButton extends HTMLElement {

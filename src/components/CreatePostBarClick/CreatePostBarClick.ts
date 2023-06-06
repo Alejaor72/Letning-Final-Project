@@ -11,9 +11,7 @@ const postForm: Post = {
     id: "",
     image: "",
     name: "",
-    description: "",
-    categories: "",
-    like: false
+    description: ""
 }
 class CreatePostBarClick extends HTMLElement {
 
@@ -59,12 +57,6 @@ class CreatePostBarClick extends HTMLElement {
           }
           });
         
-        const iconX = this.ownerDocument.createElement("img")
-        iconX.src = "/img/x_icon.png"
-        iconX.className = "IconX"
-        iconX.addEventListener("click", async () => {
-            dispatch(navigate(Screens.POST))
-          })
 
         const sectionInputs = this.ownerDocument.createElement("section")
         sectionInputs.className = "sectionInputs"
@@ -85,7 +77,7 @@ class CreatePostBarClick extends HTMLElement {
             postForm.description = e.target.value
         })
 
-
+  
 
         const Postbtn = this.ownerDocument.createElement("button")
         Postbtn.innerText = "Upload"
@@ -95,7 +87,6 @@ class CreatePostBarClick extends HTMLElement {
             dispatch(await SavePost(postForm))
         })
 
-        formSection.appendChild(iconX)
         sectionInputs.appendChild(tittle)
         sectionInputs.appendChild(Message)
         formSection.appendChild(sectionInputs)

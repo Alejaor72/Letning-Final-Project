@@ -15,13 +15,13 @@ import { Post } from "../types/post";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA59zm6Y5r_RVtaMptPI0RAzRM-X3Ejn_k",
-    authDomain: "letning-dca.firebaseapp.com",
-    projectId: "letning-dca",
-    storageBucket: "letning-dca.appspot.com",
-    messagingSenderId: "784203765833",
-    appId: "1:784203765833:web:8dc7a0fe9c616b5d02c798",
-    measurementId: "G-CJ5V0K3QJT"
+  apiKey: "AIzaSyA59zm6Y5r_RVtaMptPI0RAzRM-X3Ejn_k",
+  authDomain: "letning-dca.firebaseapp.com",
+  projectId: "letning-dca",
+  storageBucket: "letning-dca.appspot.com",
+  messagingSenderId: "784203765833",
+  appId: "1:784203765833:web:8dc7a0fe9c616b5d02c798",
+  measurementId: "G-CJ5V0K3QJT"
 };
 
 

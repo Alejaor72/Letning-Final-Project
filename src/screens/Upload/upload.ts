@@ -3,6 +3,8 @@ import User from "../../components/User/User";
 import TutorialsCard from "../../components/Tutorials/Tutorials";
 import { addObserver, appState, dispatch } from "../../store/index";
 import { CreatePostBarClick } from "../../components/export";
+import { UploadVideoButton } from "../../components/export";
+
 
 
 export default class UploadChannel extends HTMLElement {
@@ -34,6 +36,9 @@ export default class UploadChannel extends HTMLElement {
     const createPostBar = this.ownerDocument.createElement("create-postclick") as CreatePostBarClick;
     section3.appendChild(createPostBar)
 
+    const button = this.ownerDocument.createElement("upload-video-button") as  UploadVideoButton;
+    section3.appendChild(button)
+    
     const PostCards = this.ownerDocument.createElement("tutorials-card") as TutorialsCard;
     section3.appendChild(PostCards)
 

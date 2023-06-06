@@ -37,7 +37,7 @@ class AddNewVideoButton extends HTMLElement {
                 iconNew.className = "Image"
                 iconNew.src= "/img/newvideo.jpg"
                 iconNew.addEventListener("click", () =>{
-                    dispatch(navigate(Screens.NEWVIDEO));
+                    dispatch(navigate(Screens.POSTCREATE));
                 })
                 
                 iconNew.appendChild(iconNew)

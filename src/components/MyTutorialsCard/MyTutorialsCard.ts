@@ -1,5 +1,5 @@
 
-import MyTutorialsCardStyle from "./MyTutorialsCard.css"
+import MyTutorialsCardStyle from "./TutorialsCard.css"
 import { appState, addObserver} from "../../store";
 import { dispatch } from "../../store";
 import { getPosts } from "../../store/actions";

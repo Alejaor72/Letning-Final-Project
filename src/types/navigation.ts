@@ -3,7 +3,6 @@ export enum Screens {
     DASHBOARD = "DASHBOARD",
     SIGNUP = "SIGNUP",
     POST = "POST",
-    SERVERS = "SERVERS",
     HOME = "HOME",
     POSTCREATE = "POSTCREATE"
   }

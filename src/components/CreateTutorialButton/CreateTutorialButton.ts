@@ -23,7 +23,7 @@ class CreateTutorialButton extends HTMLElement {
         this.buttont.className = "CreateTutorialButton"
         this.buttont.textContent = 'Create a tutorial';
         this.buttont.addEventListener("click", () => {
-            dispatch(navigate(Screens.NEWVIDEO));
+            dispatch(navigate(Screens.POSTCREATE));
         });
     }
 

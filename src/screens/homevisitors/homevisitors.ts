@@ -73,14 +73,43 @@ export default class HomeVisitors extends HTMLElement  {
     accountButton.appendChild(Banner)
     this.shadowRoot?.appendChild(Banner);
 
-    const usernameText = this.ownerDocument.createElement("h2");
-    usernameText.textContent = "Select categories"
+    const categoriesText = this.ownerDocument.createElement("h2");
+    categoriesText.textContent = "Select categories"
     const Categoriesdiv = this.ownerDocument.createElement("div")
     Categoriesdiv.className = 'Categoriesdiv'
 
-    const Categories = this.ownerDocument.createElement("my-categories-button") as CategoriesButton;
-    Categories.appendChild(Categoriesdiv)
-    this.shadowRoot?.appendChild(Categoriesdiv);
+    const css = this.ownerDocument.createElement("style");
+    css.innerHTML = HomeVisitorsStyle;
+    this.shadowRoot?.appendChild(css);
+
+     appState.categories.forEach((data) => {
+        const CategoriesCard = this.ownerDocument.createElement("my-categories") as Categories;
+        CategoriesCard.setAttribute(CategoriesAtt.image, data.image);
+        CategoriesCard.setAttribute(CategoriesAtt.name, data.title);
+        this.CategoriesList.push(CategoriesCard);
+    });
+
+    const section2 = this.ownerDocument.createElement("section")
+    section2.className = 'Section2'
+
+    const CategoriesCards = this.ownerDocument.createElement("div")
+    CategoriesCards.className = 'CategoriesSection'
+    this.CategoriesList.forEach((CategoriesCard) => {
+      CategoriesCards.appendChild(CategoriesCard)
+    });
+    section2.appendChild(CategoriesCards)
+    this.shadowRoot?.appendChild(section2);
+
+    const tutorialsText = this.ownerDocument.createElement("h2");
+    tutorialsText.textContent = "Select categories"
+    const tutorialsdiv = this.ownerDocument.createElement("div")
+    tutorialsdiv.className = 'tutorialsdiv'
+    
+    container.appendChild(UpPart);
+    container.appendChild(Banner);
+    container.appendChild(Categoriesdiv);
+    container.appendChild(section2);
+    this.shadowRoot?.appendChild(container);
   }
   
 }

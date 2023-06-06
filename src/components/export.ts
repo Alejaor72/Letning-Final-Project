@@ -26,6 +26,8 @@ export {default as VideosCard } from './VideosCard/VideosCard'
 export {default as LoginDiv } from './LoginDiv/LoginDiv'
 export {default as SigninDiv } from './SigninDiv/SigninDiv'
 export {default as CheckBoxSignIn } from './CheckBoxSignIn/CheckBox'
+export {default as CreatePostBarClick} from './CreatePostBarClick/CreatePostBarClick'
+export {default as User} from './User/User'
 
 
 

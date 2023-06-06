@@ -1,15 +1,10 @@
 import ChannelStyle from "./ChannelStyle.css";
-import User, { UserAtt } from "../../components/Users/Users";
-
 import Psettings, { PSettingsAtt } from "../../components/ProfileSettings/ProfileSettings";
-import Channels, { ChannelsAtt } from "../../components/Channels/Channels";
-import { getChannels, getPsettingsAction} from "../../store/actions";
-import { getTutorials} from "../../store/actions";
+import { getPsettingsAction} from "../../store/actions";
 import { addObserver, appState, dispatch } from "../../store/index";
 
 class ChannelProfile extends HTMLElement {
   PSettingsList: Psettings[] = [];
-  MyChannelsList:Channels[] = [];
 
   constructor() {
     super();
@@ -18,15 +13,7 @@ class ChannelProfile extends HTMLElement {
   }
 
   async connectedCallback() {
-    if (appState.channels.length === 0) {
-      const action = await getPsettingsAction();
-      dispatch(action);
-    } if (appState.channels.length === 0) {
-      const actions = await getChannels();
-      dispatch(actions);
-    } else {
-      this.render();
-    }
+   
   }
 
   render() {
@@ -89,24 +76,7 @@ class ChannelProfile extends HTMLElement {
       `;
      }
     /////my videos 
-    appState.channels.forEach((data) => {
-        const ChannelsCard = this.ownerDocument.createElement("my-Channels") as Channels;
-        ChannelsCard.setAttribute(ChannelsAtt.image, data.image);
-        ChannelsCard.setAttribute(ChannelsAtt.tittle, data.title);
-        this.MyChannelsList.push(ChannelsCard);
-    });
     
-    const section2 = this.ownerDocument.createElement("section")
-    section2.className = 'Section2'
-
-    const MyChannelsCards = this.ownerDocument.createElement("div")
-    MyChannelsCards.className = 'MyChannelsSection'
-    this.MyChannelsList.forEach((MyChannelsCard) => {
-      MyChannelsCards.appendChild(MyChannelsCard)
-    });
-    section2.appendChild(MyChannelsCards)
-    this.shadowRoot?.appendChild(section2);
-
   }
 }
 

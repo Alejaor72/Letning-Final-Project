@@ -3,7 +3,6 @@ export interface Post {
     image: string;
     name: string;
     description: string;
-    createdAt: string;
     like: boolean;
     categories: string;
 }

@@ -1,5 +1,5 @@
 
-import ProfileImageDivStyle from "./ProfileImageDivStyle.css"
+import ProfileImageDivStyle from "./ProfileImageDiv.css"
 
 export enum ProfileImageDivAtt {
     "image" = "image",

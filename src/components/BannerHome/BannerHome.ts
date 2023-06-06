@@ -20,7 +20,7 @@ class BannerHome extends HTMLElement {
         if (this.shadowRoot) {
             this.shadowRoot.innerHTML += `
           <div class="Banner">
-             <img src="/img/BannerHome.png" alt="" class="image1">
+             <img src="../img/BannerHome.png" alt="" class="image1">
              <div class="Bannertext">
               <h1>Letning is a platform of variety tutorials</h1>
               <p>Learn with people of all kinds, and from anywhere.</p>

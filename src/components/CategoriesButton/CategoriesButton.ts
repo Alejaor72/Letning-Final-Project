@@ -5,7 +5,7 @@ export enum CategoriesAtt {
     "name" = "name"
 }
 
-class CategoriesButton extends HTMLElement {
+class Categories extends HTMLElement {
     image?: string;
     name?: string;
 
@@ -43,6 +43,7 @@ class CategoriesButton extends HTMLElement {
         render() {
             if (this.shadowRoot) {
                 this.shadowRoot.innerHTML = `
+                <link rel="stylesheet" href="./app/categories/categories.css">
                 <div class="CategoriesDiv">
                     <img class="imgC" src="${this.image}">
                     <h3 class="textC">${this.name}</h3>
@@ -56,5 +57,5 @@ class CategoriesButton extends HTMLElement {
         }
 }
 
-customElements.define("my-categories-button",CategoriesButton);
-export default CategoriesButton;
+customElements.define("my-categories",Categories);
+export default Categories;

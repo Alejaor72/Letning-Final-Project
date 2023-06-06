@@ -38,6 +38,8 @@ const uploadFile = async (file: File) => {
 };
 
 const getFile = async (name: string) => {
+  let urlimg = '';
+
   await getDownloadURL(ref(storage, name))
   .then((url) => {
     // `url` is the download URL for 'images/stars.jpg'
@@ -51,12 +53,16 @@ const getFile = async (name: string) => {
     xhr.open('GET', url);
     xhr.send();
 
-    console.log(url);
-    return url;
+    urlimg = url;
+  
   })
   .catch((error) => {
     // Handle any errors
   });
+
+  console.log(urlimg);
+  return urlimg;
+
 }
 
 

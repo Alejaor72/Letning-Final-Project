@@ -39,7 +39,11 @@ class AppContainer extends HTMLElement {
             this.shadowRoot?.appendChild(home);
             break;
 
-      
+            case Screens.POSTCREATE:
+              const postcreate = this.ownerDocument.createElement("upload-channel");
+              this.shadowRoot?.appendChild(postcreate);
+              break;
+
           default:
             break;
         }

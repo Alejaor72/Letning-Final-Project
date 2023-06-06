@@ -1,15 +1,16 @@
 import HomeStyle from "./HomeStyle.css";
 
 import Categories, { CategoriesAtt } from "../../components/CategoriesButton/CategoriesButton";
-import Tutorials, { TutorialsAtt } from "../../components/Tutorials/Tutorials";
+import LogoDiv from "../../components/LogoDiv/LogoDiv";
+import ButtonSignIn from "../../components/ButtonSignIn/ButtonSignIn";
+import ButtonlogIn from "../../components/ButtonLogIn/ButtonLogIn";
+import BannerDashboard from "../../components/ButtonSignIn/ButtonSignIn";
+
 import { getCategories } from "../../store/actions";
-import { getTutorials} from "../../store/actions";
 import { addObserver, appState, dispatch } from "../../store/index";
 
 class Home extends HTMLElement {
-  TutorialsList: Tutorials[] = [];
   CategoriesList: Categories[] = [];
-  MyTutorialsList:Tutorials[] = [];
 
   constructor() {
     super();
@@ -18,15 +19,7 @@ class Home extends HTMLElement {
   }
 
   async connectedCallback() {
-    if (appState.categories.length === 0) {
-      const action = await getCategories();
-      dispatch(action);
-    } if (appState.tutorials.length === 0) {
-      const actions = await getTutorials();
-      dispatch(actions);
-    } else {
-      this.render();
-    }
+    
   }
 
   render() {
@@ -73,100 +66,6 @@ class Home extends HTMLElement {
     </div>
       `;
   }
-
-  if (this.shadowRoot) {
-      this.shadowRoot.innerHTML += `
-      <link rel="stylesheet" href="./HomeStyle.css">
-      <div class="Title">
-      <h3>Select the Categories</h3>
-      </div>
-      `;
-  }
-    const css = this.ownerDocument.createElement("style");
-    css.innerHTML = HomeStyle;
-    this.shadowRoot?.appendChild(css);
-
-     appState.categories.forEach((data) => {
-        const CategoriesCard = this.ownerDocument.createElement("my-categories") as Categories;
-        CategoriesCard.setAttribute(CategoriesAtt.image, data.image);
-        CategoriesCard.setAttribute(CategoriesAtt.name, data.title);
-        this.CategoriesList.push(CategoriesCard);
-    });
-
-    const section2 = this.ownerDocument.createElement("section")
-    section2.className = 'section2'
-    
-    const CategoriesCards = this.ownerDocument.createElement("div")
-    CategoriesCards.className = 'CategoriesSection'
-    this.CategoriesList.forEach((CategoriesCard) => {
-      CategoriesCards.appendChild(CategoriesCard)
-    });
-    section2.appendChild(CategoriesCards)
-    this.shadowRoot?.appendChild(section2);
-
-    if (this.shadowRoot) {
-      this.shadowRoot.innerHTML += `
-      <link rel="stylesheet" href="./HomeStyle.css">
-      <div class="Title">
-      <h3>My Tutorials</h3>
-      </div>
-      `;
-     }
-    /////my tutorials 
-    const MyTutorials = appState.tutorials.filter((user)=>{
-      return user.like === true
-    })
-
-    MyTutorials.forEach((data)=>{
-      const MyTutorialsCard = this.ownerDocument.createElement("my-tutorials") as Tutorials;
-      MyTutorialsCard.setAttribute(TutorialsAtt.image, data.image);
-      MyTutorialsCard.setAttribute(TutorialsAtt.tittle, data.title);
-      MyTutorialsCard.setAttribute(TutorialsAtt.creator, data.creator);
-      this.MyTutorialsList.push(MyTutorialsCard);
-    })
-    
-    const section3 = this.ownerDocument.createElement("section")
-    section3.className = 'Section3'
-
-    const MyTutorialsCards = this.ownerDocument.createElement("div")
-    MyTutorialsCards.className = 'MyTutorialsSection'
-    this.MyTutorialsList.forEach((MyTutorialsCard) => {
-      MyTutorialsCards.appendChild(MyTutorialsCard)
-    });
-    section3.appendChild(MyTutorialsCards)
-    this.shadowRoot?.appendChild(section3);
-
-    if (this.shadowRoot) {
-      this.shadowRoot.innerHTML += `
-      <link rel="stylesheet" href="./HomeStyle.css">
-      <div class="Title">
-      <h3>Tutorials</h3>
-      </div>
-      `;
-  }
-
-  const Tutorials = appState.tutorials.filter((user)=>{
-    return user.like === false
-  })
-
-  Tutorials.forEach((data)=>{
-    const TutorialsCard = this.ownerDocument.createElement("my-tutorials") as Tutorials;
-    TutorialsCard.setAttribute(TutorialsAtt.image, data.image);
-    TutorialsCard.setAttribute(TutorialsAtt.tittle, data.title);
-    TutorialsCard.setAttribute(TutorialsAtt.creator, data.creator);
-    this.TutorialsList.push(TutorialsCard);
-  })
-
-  const section1 = this.ownerDocument.createElement("section")
-  section1.className = 'Section1'
-
-  const TutorialsCards = this.ownerDocument.createElement("div")
-  TutorialsCards.className = 'TutorialsSection'
-  this.TutorialsList.forEach((TutorialsCard) => {
-      TutorialsCards.appendChild(TutorialsCard)
-  });
-  section1.appendChild(TutorialsCards)
-  this.shadowRoot?.appendChild(section1);
 
   }
 }

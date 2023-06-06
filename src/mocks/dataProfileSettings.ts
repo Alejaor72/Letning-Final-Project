@@ -9,10 +9,6 @@ export const dataProfileSettings: InterPSettings[] = [
         image: "/img/channel.png",
         title: "My channel"
     },
-    {
-        image: "/img/Messages.png",
-        title: "My messages"
-     },
      {
         image: "/img/config.png",
         title: "Configuration"

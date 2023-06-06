@@ -3,7 +3,7 @@ import HomeVisitorsStyle from "./HomeVisitorsStyle.css";
 import Categories, { CategoriesAtt } from "../../components/CategoriesButton/CategoriesButton";
 import LogoDiv from "../../components/LogoDiv/LogoDiv";
 import ButtonSignIn from "../../components/ButtonSignIn/ButtonSignIn";
-import ButtonlogIn from "../../components/ButtonLogIn/ButtonLogIn";
+import ButtonLogin from "../../components/ButtonLogIn/ButtonLogIn";
 import BannerDashboard from "../../components/BannerDashboard/BannerDashboard";
 import SeeTButton from "../../components/SeeTButton/SeeTButton";
 import CreateAButton from "../../components/CreateAButton/CreateAButton";
@@ -48,7 +48,20 @@ export default class HomeVisitors extends HTMLElement  {
       this.shadowRoot?.appendChild(css);   
     }
 
+    const container = this.ownerDocument.createElement("section")
+    container.className = 'container'
+
+    const UpPart = this.ownerDocument.createElement("section")
+    UpPart.className = 'UpPart'
     
+    const logo = this.ownerDocument.createElement("logo-div") as LogoDiv;
+    logo.appendChild(UpPart)
+    const siginbutton = this.ownerDocument.createElement("button-signin") as ButtonSignIn;
+    siginbutton.appendChild(UpPart)
+    const loginbutton = this.ownerDocument.createElement("button-login") as ButtonLogin;
+    loginbutton.appendChild(UpPart)
+    this.shadowRoot?.appendChild(UpPart);
+
 
   }
   
